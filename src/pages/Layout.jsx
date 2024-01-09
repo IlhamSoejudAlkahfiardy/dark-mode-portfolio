@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
         <>
             <div className='bg-zinc-950 font-fontPoppins'>
                 <Navbar />
-                <div className='px-5'>
+                <div className=''>
                     {children}
                 </div>
                 <Footer />
