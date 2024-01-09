@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HamburgerMenu = (props) => {
     return (
-        <div className=' flex justify-between items-center px-3 bg-zinc-950'>
+        <div className='flex container mx-auto lg:hidden justify-between items-center px-3 md:px-6 bg-zinc-950'>
             <button
                 onClick={() => props.setOpen(!props.open)}
                 className={` my-3 transition-all duration-300 ${props.open ? " rotate-180" : "rotate-0"}`}
@@ -18,14 +19,14 @@ const HamburgerMenu = (props) => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        className='text-blue-600'
+                        className='text-blue-500'
                         d="M4 6h16M4 12h16m-7 6h7"
                     />
                 </svg>
             </button>
-            <p className='text-lg font-bold text-slate-200 tracking-wider'>
+            <Link to="/" className='text-lg font-bold text-slate-200 tracking-wider'>
                 Skills Studio
-            </p>
+            </Link>
         </div>
     )
 }

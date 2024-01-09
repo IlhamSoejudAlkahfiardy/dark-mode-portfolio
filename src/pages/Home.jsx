@@ -5,11 +5,9 @@ import Layout from './Layout'
 const Home = () => {
     return (
         <Layout>
-            <div className='w-full flex'>
 
                 <ComponentLandingPage />
 
-            </div>
         </Layout>
     )
 }
