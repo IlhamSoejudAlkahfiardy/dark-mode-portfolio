@@ -24,13 +24,13 @@ const Navbar = () => {
 
 const NavbarDesktop = (props) => {
     return (
-        <div className='w-full hidden container mx-auto h-24 bg-zinc-950 lg:flex items-center px-5 md:px-10'>
+        <div className='w-full z-20 hidden container mx-auto h-24 bg-zinc-950 lg:flex items-center px-5 md:px-10'>
             <div className='w-2/12 h-full  flex items-center'>
                 <Link to="/" className='text-lg font-bold text-slate-200 tracking-wider'>
                     Skills Studio
                 </Link>
             </div>
-            <div className='w-8/12 h-full flex items-center gap-16'>
+            <div className='w-7/12 lg:w-6/12 xl:w-7/12 h-full flex items-center gap-16'>
                 <Link to="/" className=' flex flex-col w-fit gap-2'>
                     <p className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>About Me</p>
                 </Link>
@@ -40,6 +40,18 @@ const NavbarDesktop = (props) => {
                 <Link to="/experience" className=' flex flex-col w-fit gap-2'>
                     <p className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>Experience</p>
                 </Link>
+            </div>
+            <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
+
+                <div className='w-full flex justify-center items-center '>
+                    <Link to="#" className='text-slate-200 text-sm hover:border-b hover:border-blue-500 tracking-wider  leading-loose'>
+                        Contact me
+                    </Link>
+                </div>
+                <div className='w-full flex justify-center items-center hover:cursor-pointer'>
+                    <p className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>Download my CV</p>
+                </div>
+
             </div>
         </div>
     )

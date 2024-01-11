@@ -14,7 +14,7 @@ const LandingPage = () => {
       <Hero />
       <About />
       <Skill />
-      <JobDesk/>
+      <JobDesk />
     </>
   )
 }
@@ -23,7 +23,7 @@ const Hero = () => {
   const textSkill = ['Front End Developer', 'UI/UX Designer', 'Junior Back End Devs']
   const textSkillSet = ['React JS', 'Tailwind CSS', 'Bootstrap', 'CodeIgniter', 'MySQL', 'PHP', 'Laravel', 'JS']
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [currentSkillSetIndex,setCurrentSkillSetIndex] = useState(0);
+  const [currentSkillSetIndex, setCurrentSkillSetIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -57,7 +57,7 @@ const Hero = () => {
           See my recent projects
           <LiaHandPointer className='inline-block' />
         </Link>
-        <Link to="/experience" className='w-fit text-blue-500 text-sm bg-zinc-950 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:outline  hover:cursor-pointer'>
+        <Link to="/experience" className='w-fit text-blue-500 text-sm bg-zinc-950 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-500 hover:text-slate-200  hover:cursor-pointer'>
           See my experience
           <CiStar className='inline-block' />
         </Link>
@@ -68,7 +68,7 @@ const Hero = () => {
 
 const About = () => {
   return (
-    <div className='w-full h-full xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
+    <div className='w-full h-full relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
       <p className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>About Me</p>
 
       <div className='w-full flex flex-col lg:flex-row justify-start mt-10 xl:mt-24'>
@@ -152,15 +152,16 @@ const About = () => {
         </div>
 
       </div>
+      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>About me</p> */}
     </div>
   )
 }
 
 const Skill = () => {
   return (
-    <div className='w-full h-full xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
+    <div className='w-full h-full  relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
       <p className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>My Skill-set</p>
-      <div className='w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
+      <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataSkill.map((data, index) => (
           <div className=' aspect-square flex flex-col justify-center items-center hover:bg-white/5 rounded-md'>
             <div className=' w-1/2 lg:w-1/3'>
@@ -168,17 +169,17 @@ const Skill = () => {
             </div>
           </div>
         ))}
-
       </div>
+      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>My Skill-set</p> */}
     </div>
   )
 }
 
 const JobDesk = () => {
   return (
-    <div className='w-full h-full xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
+    <div className='w-full h-full relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
       <p className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>What Can I Do</p>
-      <div className='w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
+      <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataJobDesk.map((data, index) => (
           <div className=' aspect-square flex flex-col justify-center gap-5 center items-center hover:bg-white/5 rounded-md'>
             <div className='w-1/2 lg:w-1/3'>
@@ -189,6 +190,7 @@ const JobDesk = () => {
         ))}
 
       </div>
+      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>What Can i Do</p> */}
     </div>
   )
 }

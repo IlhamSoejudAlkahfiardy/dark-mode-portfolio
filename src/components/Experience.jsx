@@ -61,7 +61,7 @@ const Experience = () => {
                     date={"2021 Jun - Now"}
                     internship={false}
                     left={false}
-                    major={"Major: Information System"}
+                    major={"Major: Diploma of Information System"}
                     title={"Merdeka Malang University"}
                 />
 
@@ -83,7 +83,7 @@ const Experience = () => {
 
                 <Detail
                     certificate={false}
-                    date={"Belum"}
+                    date={"2023 Feb - Aug"}
                     internship={false}
                     left={false}
                     major={"Major: Web Developer"}
@@ -142,9 +142,9 @@ const Detail = ({ left, internship, date, title, major, certificate }) => {
             {internship && (
                 <p className='text-xs text-slate-200 bg-green-600 w-fit px-2 py-1 rounded mb-3'>Internship</p>
             )}
-            <p className='text-slate-400 text-xs font-light'>{date}</p>
-            <p className={`text-slate-200 text-sm ${left && "text-end"}`}>{title}</p>
-            <p className={`text-blue-500 text-xs ${left && "text-end"}`}>{major}</p>
+            <p className='text-slate-400 text-xs lg:text-sm 2xl:text-base font-light'>{date}</p>
+            <p className={`text-slate-200 text-sm lg:text-base 2xl:text-lg ${left && "text-end"}`}>{title}</p>
+            <p className={`text-blue-500 text-xs lg:text-sm 2xl:text-base ${left && "text-end"}`}>{major}</p>
             {certificate && (
                 <Certificate />
             )}
@@ -155,7 +155,7 @@ const Detail = ({ left, internship, date, title, major, certificate }) => {
 const Certificate = () => {
     return (
         <div className='w-full h-fit bg-blue-600 hover:bg-blue-700 hover:cursor-pointer py-2 rounded'>
-            <p className='text-xs text-center text-slate-200 '>Certificate</p>
+            <p className='text-xs lg:text-sm 2xl:text-base text-center text-slate-200 '>Certificate</p>
         </div>
     )
 }
