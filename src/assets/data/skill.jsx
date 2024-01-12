@@ -6,7 +6,7 @@ import { DiCodeigniter } from "react-icons/di";
 import { FaLaravel } from "react-icons/fa";
 import { FaPhp } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-
+import { FaJava } from "react-icons/fa";
 
 const Skill = [
   {
@@ -48,6 +48,11 @@ const Skill = [
     id: 7,
     logo: <IoLogoJavascript className="w-full h-full text-yellow-400" />,
     title: "JavaScript",
+  },
+  {
+    id: 8,
+    logo: <FaJava className="w-full h-full text-red-900" />,
+    title: "Java",
   },
 ];
 

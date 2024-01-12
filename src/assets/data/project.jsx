@@ -1,9 +1,14 @@
 import Sample from "../images/project/image/sample.svg";
+
+// Logo
 import LogoHairHub from "../images/project/logo/hairhub.png";
-import ImageHairHub from "../images/project/image/hairhub.png";
 import LogoBeraniBicara from "../images/project/logo/beranibicara.png";
-import ImageBeraniBicara from "../images/project/image/beranibicara.png";
 import LogoHavenBook from "../images/project/logo/havenbook.png";
+import LogoPorto from "../images/project/logo/porto.png";
+
+// Image
+import ImageHairHub from "../images/project/image/hairhub.png";
+import ImageBeraniBicara from "../images/project/image/beranibicara.png";
 import ImageHavenBook from "../images/project/image/havenbook.png";
 import ImageWeatherApp from "../images/project/image/weather-app.png";
 import ImageBank from "../images/project/image/bank.png";
@@ -13,7 +18,24 @@ import ImageStudentLMS from "../images/project/image/student-lms.jpg";
 import ImageTeacherLMS from "../images/project/image/teacher-lms.jpg";
 import ImageAuction from "../images/project/image/auction.png";
 import ImagePorto from "../images/project/image/porto.png";
-import LogoPorto from "../images/project/logo/porto.png";
+
+// Stack
+import { FaReact } from "react-icons/fa";
+import { BiLogoTailwindCss } from "react-icons/bi";
+import { FaBootstrap } from "react-icons/fa";
+import { SiMysql } from "react-icons/si";
+import { DiCodeigniter } from "react-icons/di";
+import { FaLaravel } from "react-icons/fa";
+import { FaPhp } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io5";
+import { FaJava } from "react-icons/fa";
+
+import { SiExpress } from "react-icons/si";
+import { FaNodeJs } from "react-icons/fa";
+import { SiAxios } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { DiJqueryLogo } from "react-icons/di";
 
 const Project = [
   {
@@ -28,6 +50,32 @@ const Project = [
     date: "23-10-2023",
     category: "latest",
     active: true,
+    stack: [
+      {
+        name:'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name:'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name:'Express JS',
+        tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
+      },
+      {
+        name:'Node JS',
+        tech: <FaNodeJs className='inline-block w-full h-full text-lime-500' />
+      },
+      {
+        name:'Axios',
+        tech: <SiAxios className='inline-block w-full h-full text-purple-500' />
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Danang",
@@ -70,6 +118,20 @@ const Project = [
     date: "07-09-2023",
     category: "latest",
     active: true,
+    stack: [
+      {
+        name:'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-cyan-600' />
+      },
+      {
+        name:'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name:'Axios',
+        tech: <SiAxios className='inline-block w-full h-full text-purple-500' />
+      },
+    ],
     teams: [
       {
         name: "Danang",
@@ -104,10 +166,24 @@ const Project = [
     title: "HavenBook",
     desc: "HavenBook is a website that serves its users to rent books with various categories, genres, titles, and prices. With easy and fast payment methods, as well as user-friendly features for new users, we aim to provide you with a good book rental experience.",
     hosting: "-",
-    github: "-",
+    github: "https://github.com/Tom-Dev-App/Haven-Book-Desain-SI/tree/production",
     date: "05-06-2023",
     category: "latest",
     active: false,
+    stack: [
+      {
+        name:'Laravel',
+        tech: <FaLaravel className="w-full h-full text-rose-700" />,
+      },
+      {
+        name:'Bootstrap',
+        tech: <FaBootstrap className="w-full h-full text-violet-500" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
@@ -134,6 +210,20 @@ const Project = [
     date: "15-03-2023",
     category: "archive",
     active: true,
+    stack: [
+      {
+        name:'HTML',
+        tech: <FaHtml5 className="w-full h-full text-orange-700" />
+      },
+      {
+        name:'CSS',
+        tech: <FaCss3Alt className="w-full h-full text-orange-600" />
+      },
+      {
+        name:'JS',
+        tech: <IoLogoJavascript className="w-full h-full text-yellow-400" />
+      },
+    ],
     teams: [
       {
         name: "Ilham",
@@ -153,6 +243,16 @@ const Project = [
     date: "2019",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'PHP',
+        tech: <FaPhp className="w-full h-full text-indigo-800" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
@@ -171,6 +271,16 @@ const Project = [
     date: "2022",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'Java',
+        tech: <FaJava className="w-full h-full text-red-900" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
@@ -189,6 +299,24 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'CodeIgniter 3',
+        tech: <DiCodeigniter className="w-full h-full text-red-600" />,
+      },
+      {
+        name:'Bootstrap',
+        tech: <FaBootstrap className="w-full h-full text-violet-500" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+      {
+        name:'JQuery',
+        tech: <DiJqueryLogo className="w-full h-full text-sky-800" />,
+      },
+    ],
     teams: [
       {
         name: "Zidan",
@@ -235,6 +363,16 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'Java',
+        tech: <FaJava className="w-full h-full text-red-900" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
@@ -253,28 +391,20 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'Java',
+        tech: <FaJava className="w-full h-full text-red-900" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
         role: "Fullstack Developer",
-      },
-    ],
-  },
-  {
-    id: 10,
-    logo: LogoPorto,
-    image: ImagePorto,
-    title: "Personal Portfolio Web",
-    desc: "A personal web portfolio showcasing past projects, skills, personal bio, and a 'Contact Me' section for users interested in collaboration.",
-    hosting: "-",
-    github: "https://github.com/IlhamSoejudAlkahfiardy/Auction.co.id/tree/master/Lelang",
-    date: "Now",
-    category: "archive",
-    active: true,
-    teams: [
-      {
-        name: "Ilham",
-        role: "Front End Developer",
       },
     ],
   },
@@ -289,10 +419,56 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    stack: [
+      {
+        name:'CodeIgniter 3',
+        tech: <DiCodeigniter className="w-full h-full text-red-600" />,
+      },
+      {
+        name:'Bootstrap',
+        tech: <FaBootstrap className="w-full h-full text-violet-500" />,
+      },
+      {
+        name:'MySQL',
+        tech: <SiMysql className="w-full h-full text-indigo-700" />,
+      },
+      {
+        name:'JQuery',
+        tech: <DiJqueryLogo className="w-full h-full text-sky-800" />,
+      },
+    ],
     teams: [
       {
         name: "Ilham",
         role: "Fullstack Developer",
+      },
+    ],
+  },
+  {
+    id: 10,
+    logo: LogoPorto,
+    image: ImagePorto,
+    title: "Personal Portfolio Web",
+    desc: "A personal web portfolio showcasing past projects, skills, personal bio, and a 'Contact Me' section for users interested in collaboration.",
+    hosting: "https://skills-studio.my.id",
+    github: "https://github.com/IlhamSoejudAlkahfiardy/Auction.co.id/tree/master/Lelang",
+    date: "Now",
+    category: "current",
+    active: true,
+    stack: [
+      {
+        name:'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-cyan-600' />
+      },
+      {
+        name:'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
       },
     ],
   },

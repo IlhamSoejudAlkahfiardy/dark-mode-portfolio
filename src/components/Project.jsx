@@ -1,46 +1,126 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DataProject from '../assets/data/project'
 import { CiGlobe } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
+import { FaCaretRight } from "react-icons/fa6";
+
+import { FaReact } from "react-icons/fa";
 
 // shadcn UI
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 const Project = () => {
+    const [currentOpen, setCurrentOpen] = useState(true)
+    const [latestOpen, setLatestOpen] = useState(true)
+    const [archiveOpen, setArchiveOpen] = useState(true)
+
     return (
         <div className='w-full min-h-screen relative overflow-x-hidden container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
-            <p className='text-zinc-900/20 absolute text-9xl w-full top-0'>My Projects</p>
+            
             <p className='text-slate-200 z-10 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>What I've Done</p>
-            <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 xl:mt-10'>
-                {DataProject.map((data, index) => (
-                    <Card
-                        image={data.image}
-                        title={data.title}
-                        desc={data.desc}
-                        hosting={data.hosting}
-                        github={data.github}
-                        active={data.active}
-                        date={data.date}
-                        teams={data.teams}
-                        logo={data.logo}
-                    />
-                ))}
+
+            <div className='w-full flex flex-col gap-2 xl:mt-10'>
+                <div className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setCurrentOpen(!currentOpen)}>
+                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Current Project</p>
+                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${currentOpen ? "rotate-90" : "rotate-0"}`} />
+                </div>
+                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
+                    {currentOpen && (
+                        DataProject.map((data, index) => (
+                            data.category == 'current' && (
+                                <Card
+                                    image={data.image}
+                                    title={data.title}
+                                    desc={data.desc}
+                                    hosting={data.hosting}
+                                    github={data.github}
+                                    active={data.active}
+                                    date={data.date}
+                                    teams={data.teams}
+                                    logo={data.logo}
+                                    stack={data.stack}
+                                />
+                            )
+                        ))
+                    )}
+                </div>
             </div>
+
+            <div className='w-full flex flex-col gap-2 xl:mt-10'>
+                <div className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setLatestOpen(!latestOpen)}>
+                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Latest Project</p>
+                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${latestOpen ? "rotate-90" : "rotate-0"}`} />
+                </div>
+                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
+                    {latestOpen && (
+                        DataProject.map((data, index) => (
+                            data.category == 'latest' && (
+                                <Card
+                                    image={data.image}
+                                    title={data.title}
+                                    desc={data.desc}
+                                    hosting={data.hosting}
+                                    github={data.github}
+                                    active={data.active}
+                                    date={data.date}
+                                    teams={data.teams}
+                                    logo={data.logo}
+                                    stack={data.stack}
+                                />
+                            )
+                        ))
+                    )}
+                </div>
+            </div>
+
+            <div className='w-full flex flex-col gap-2 xl:mt-10'>
+                <div className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setArchiveOpen(!archiveOpen)}>
+                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Archive Project</p>
+                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${archiveOpen ? "rotate-90" : "rotate-0"}`} />
+                </div>
+                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
+                    {archiveOpen && (
+                        DataProject.map((data, index) => (
+                            data.category == 'archive' && (
+                                <Card
+                                    image={data.image}
+                                    title={data.title}
+                                    desc={data.desc}
+                                    hosting={data.hosting}
+                                    github={data.github}
+                                    active={data.active}
+                                    date={data.date}
+                                    teams={data.teams}
+                                    logo={data.logo}
+                                    stack={data.stack}
+                                />
+                            )
+                        ))
+                    )}
+                </div>
+            </div>
+
         </div>
     )
 }
 
-const Card = ({ logo, image, title, desc, hosting, github, date, category, teams, active }) => {
+const Card = ({ logo, image, title, desc, hosting, github, date, category, teams, stack, active }) => {
     const link = (e) => {
         window.open(e)
     }
     return (
         <div className='max-w-sm min-w-full mx-auto flex flex-col border border-slate-200/20 rounded'>
-            <div className='w-full h-52' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+            {active ? (
+                <div onClick={() => link(hosting)} className='w-full h-52 hover:opacity-85 hover:cursor-pointer transition-all' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
-            </div>
-            <div className='w-full max-h-80 px-3 md:px-5 py-5 md:py-6 flex flex-col justify-between gap-5'>
+                </div>
+            ) : (
+                <div className='w-full h-52' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+
+                </div>
+            )}
+            <div className='w-full min-h-80 px-3 md:px-5 py-5 md:py-6 flex flex-col justify-between gap-5'>
                 <div className='w-full min-h-40 flex flex-col gap-5'>
                     <div className='w-full flex gap-2 justify-between items-center'>
                         <div className='flex items-center gap-2'>
@@ -93,6 +173,24 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                         ) : (
                             <p className='text-xs w-3/4 text-slate-200 hover:underline  line-clamp-1'>{github}</p>
                         )}
+                    </div>
+                    <div className='w-full flex items-center gap-2 mt-5'>
+
+                        {stack.map((data, index) => (
+                            <div className='w-6 h-6 flex justify-center items-center '>
+                                <TooltipProvider>
+                                    <Tooltip >
+                                        <TooltipTrigger className="w-full h-full">
+                                            {data.tech}
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            {data.name}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
+                        ))}
+
                     </div>
                     <div className='w-full flex items-center justify-between mt-5'>
                         <p className='text-slate-500 text-xs'>{date}</p>
