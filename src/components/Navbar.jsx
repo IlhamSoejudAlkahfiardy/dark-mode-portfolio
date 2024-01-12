@@ -6,16 +6,23 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
     const page = useLocation().pathname
     const [shadowNav, setShadowNav] = useState(false)
+
+    const cv = () => {
+        alert('not yet clickable!')
+    }
+
     return (
         <>
             <HamburgerMenu open={open} setOpen={setOpen} />
             <NavbarMobile
                 open={open}
                 page={page}
+                cv={cv}
                 setOpen={setOpen}
             />
             <NavbarDesktop
                 page={page}
+                cv={cv}
             />
 
         </>
@@ -44,12 +51,12 @@ const NavbarDesktop = (props) => {
             <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
 
                 <div className='w-full flex justify-center items-center '>
-                    <Link to="#" className='text-slate-200 text-sm hover:border-b hover:border-blue-500 tracking-wider  leading-loose'>
+                    <Link to="/contact-me" className={`text-slate-200 text-sm hover:border-b hover:border-blue-500 tracking-wider leading-loose ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
                         Contact me
                     </Link>
                 </div>
                 <div className='w-full flex justify-center items-center hover:cursor-pointer'>
-                    <p className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>Download my CV</p>
+                    <p onClick={()=>props.cv()} className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>Download my CV</p>
                 </div>
 
             </div>
@@ -71,10 +78,10 @@ const NavbarMobile = (props) => {
             <Link to="/experience" className={`text-slate-200 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
                 Experience
             </Link>
-            <Link to="#" className={`text-slate-200 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
+            <Link to="/contact-me" className={`text-slate-200 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
                 Contact me
             </Link>
-            <p className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
+            <p onClick={()=>props.cv()} className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
                 Download my CV
             </p>
 

@@ -1,6 +1,25 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Experience = () => {
+    const baseURL = window.location.origin
+
+    const setpres = `${baseURL}/src/assets/downloadable/sertifikat_setpres.pdf`
+    const IL = `${baseURL}/src/assets/downloadable/sertifikat_IL.pdf`
+
+    const download = (url) => {
+        // alert('download '+ url)
+        const fileName = url.split('/').pop()
+        const aTag = document.createElement('a')
+        aTag.href = url
+        aTag.setAttribute('download', fileName)
+        document.body.appendChild(aTag)
+        aTag.click()
+        aTag.remove()
+
+        alert(`${fileName} downloaded, check your download folder`)
+    }
+
     return (
         <div className='w-full min-h-screen  xl:justify-center container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
             <p className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>My Experience</p>
@@ -37,6 +56,8 @@ const Experience = () => {
                     left={false}
                     major={"Press Bureau of Media and Information"}
                     title={"Presidental Secretariat"}
+                    download={download}
+                    url={setpres}
                 />
 
                 <Detail
@@ -97,12 +118,14 @@ const Experience = () => {
                     left={true}
                     major={"Major: Independent Study Web Developer"}
                     title={"Infinite Learning"}
+                    download={download}
+                    url={IL}
                 />
 
                 <Timeline />
 
-                <Colspan/>
-                <Colspan/>
+                <Colspan />
+                <Colspan />
 
                 <div className='w-full h-24 flex justify-center items-start'>
                     <div className='w-px h-1/2 border border-slate-500'>
@@ -136,7 +159,7 @@ const Timeline = () => {
     )
 }
 
-const Detail = ({ left, internship, date, title, major, certificate }) => {
+const Detail = ({ left, internship, date, title, major, certificate, download, url }) => {
     return (
         <div className={`w-full h-fit col-span-2 flex flex-col gap-2 p-3 ${left && "items-end"} `}>
             {internship && (
@@ -146,15 +169,15 @@ const Detail = ({ left, internship, date, title, major, certificate }) => {
             <p className={`text-slate-200 text-sm lg:text-base 2xl:text-lg ${left && "text-end"}`}>{title}</p>
             <p className={`text-blue-500 text-xs lg:text-sm 2xl:text-base ${left && "text-end"}`}>{major}</p>
             {certificate && (
-                <Certificate />
+                <Certificate download={download} url={url} />
             )}
         </div>
     )
 }
 
-const Certificate = () => {
+const Certificate = ({ download, url }) => {
     return (
-        <div className='w-full h-fit bg-blue-600 hover:bg-blue-700 hover:cursor-pointer py-2 rounded'>
+        <div onClick={() => download(url)} className='w-full h-fit bg-blue-600 hover:bg-blue-700 hover:cursor-pointer py-2 rounded'>
             <p className='text-xs lg:text-sm 2xl:text-base text-center text-slate-200 '>Certificate</p>
         </div>
     )

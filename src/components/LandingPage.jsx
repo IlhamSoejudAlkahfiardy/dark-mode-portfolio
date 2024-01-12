@@ -43,7 +43,7 @@ const Hero = () => {
           <p className='text-slate-200 lg:text-lg xl:text-xl'>Hi Everyone, my name is</p>
           <p className='text-slate-200 text-4xl xl:text-5xl font-bold'>Alkahfiardy</p>
           <p className='text-slate-200 lg:text-lg xl:text-xl'>Im a</p>
-          <p className=' text-blue-500 text-4xl xl:text-5xl font-bold'>{textSkill[currentTextIndex]}</p>
+          <p className=' text-blue-500 text-4xl xl:text-5xl font-bold w-3/4'>{textSkill[currentTextIndex]}</p>
           <p className='text-slate-200 lg:text-lg xl:text-xl'>and my skill-set is</p>
           <p className=' text-blue-500 text-xl xl:text-2xl font-bold'>{textSkillSet[currentSkillSetIndex]}</p>
         </div>
@@ -152,7 +152,7 @@ const About = () => {
         </div>
 
       </div>
-      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>About me</p> */}
+      
     </div>
   )
 }
@@ -170,7 +170,7 @@ const Skill = () => {
           </div>
         ))}
       </div>
-      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>My Skill-set</p> */}
+      
     </div>
   )
 }
@@ -190,7 +190,7 @@ const JobDesk = () => {
         ))}
 
       </div>
-      {/* <p className='text-zinc-900/20 absolute text-9xl w-full bottom-0'>What Can i Do</p> */}
+      
     </div>
   )
 }
