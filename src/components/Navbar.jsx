@@ -8,8 +8,20 @@ const Navbar = () => {
     const page = useLocation().pathname
     const [shadowNav, setShadowNav] = useState(false)
 
-    const cv = () => {
-        alert('not yet clickable!')
+    const baseURL = window.location.origin
+
+    const resume = `${baseURL}/src/assets/downloadable/Resume-Ilham-Alkahfiardy.pdf`
+
+    const cv = (url) => {
+        const fileName = url.split('/').pop()
+        const aTag = document.createElement('a')
+        aTag.href = url
+        aTag.setAttribute('download', fileName)
+        document.body.appendChild(aTag)
+        aTag.click()
+        aTag.remove()
+
+        alert(`${fileName} downloaded, check your download folder`)
     }
 
     return (
@@ -21,11 +33,13 @@ const Navbar = () => {
                 page={page}
                 cv={cv}
                 setOpen={setOpen}
+                resume={resume}
             />
 
             <NavbarDesktop
                 page={page}
                 cv={cv}
+                resume={resume}
             />
 
         </>
@@ -173,7 +187,7 @@ const NavbarDesktop = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv()} className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
+                        onClick={() => props.cv(props.resume)} className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
                         Download my CV
                     </motion.p>
                 </div>
@@ -203,9 +217,9 @@ const NavbarMobile = (props) => {
                         y: -400
                     }}
 
-                    transition={{ 
-                        type:'spring'
-                     }}
+                    transition={{
+                        type: 'spring'
+                    }}
 
                     className={`absolute w-full z-20 py-5 bg-zinc-950 lg:hidden flex flex-col justify-center items-center gap-5`}>
 
@@ -230,7 +244,7 @@ const NavbarMobile = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv()} className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
+                        onClick={() => props.cv(props.resume)} className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
                         Download my CV
                     </motion.p>
 

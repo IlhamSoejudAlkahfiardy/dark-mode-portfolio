@@ -8,17 +8,19 @@ import DataSkill from '../assets/data/skill';
 import DataJobDesk from '../assets/data/jobdesk'
 
 // Framer Motion
-import { animate, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import ScrollTop from './ScrollTop';
 
 const LandingPage = () => {
 
   return (
-    <>
+    <div className='relative'>
       <Hero />
       <About />
       <Skill />
       <JobDesk />
-    </>
+      <ScrollTop/>
+    </div>
   )
 }
 
@@ -41,14 +43,14 @@ const Hero = () => {
   }, [textSkill.length]);
 
   return (
-    <div className='w-full xl:h-[650px] 2xl:h-[800px] xl:justify-center container mx-auto flex flex-col mt-10 md:mt-24 xl:mt-0 gap-10 xl:gap-0 px-5 md:px-10'>
+    <div id='landing-page' className='w-full xl:h-[650px] 2xl:h-[800px] xl:justify-center container mx-auto flex flex-col mt-10 md:mt-24 xl:mt-0 gap-10 xl:gap-0 px-5 md:px-10'>
       <div className='w-full flex items-center h-fit'>
         <motion.div
           initial={{
             scale: 0
           }}
 
-          animate={{
+          whileInView={{
             scale: 1
           }}
 
@@ -147,7 +149,7 @@ const Hero = () => {
             scale: 0
           }}
 
-          animate={{
+          whileInView={{
             scale: 1
           }}
 
@@ -173,7 +175,6 @@ const Hero = () => {
 
           transition={{
             type: "spring",
-            // delay: .2
           }}
 
           className='w-1/3 lg:w-1/4 xl:w-1/5 h-48 flex justify-center items-center'
@@ -187,7 +188,7 @@ const Hero = () => {
           scale: 0
         }}
 
-        animate={{
+        whileInView={{
           scale: 1
         }}
 
@@ -253,15 +254,17 @@ const About = () => {
         dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
 
         initial={{
-          scale: 0
+          opacity: 0,
+          y: 100
         }}
 
-        animate={{
-          scale: 1
+        whileInView={{
+          y: 0,
+          opacity: 1,
         }}
 
         whileTap={{
-          scale: 1.2,
+          opacity: 1.2,
         }}
 
         whileHover={{
@@ -269,7 +272,8 @@ const About = () => {
         }}
 
         transition={{
-          type: 'spring'
+          type: 'spring',
+          duration: 1.5
         }}
         className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
         About Me
@@ -300,33 +304,39 @@ const About = () => {
               scale: 1.1
             }}
 
+
             initial={{
-              scale: 0
+              opacity: 0,
+              y: 100
             }}
 
-            animate={{
-              scale: 1
+            whileInView={{
+              y: 0,
+              opacity: 1
             }}
 
             transition={{
               type: 'spring',
-              delay: .1
+              delay: .1,
+              duration: 1.5
             }}
 
-            className='w-1/4 lg:w-full aspect-square h-fit rounded-md' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-          </motion.div>
+            className='w-1/4 lg:w-full aspect-square h-fit rounded-md' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'center', backgroundSize: 'cover' }} />
 
           <motion.div
             initial={{
-              x: 300
+              x: 300,
+              opacity: 0
             }}
 
-            animate={{
-              x: 0
+            whileInView={{
+              x: 0,
+              opacity: 1
             }}
 
             transition={{
-              type: 'spring'
+              type: 'spring',
+              duration: 1.5
             }}
 
             className='w-3/4 flex lg:hidden flex-col gap-6 pl-10 md:pl-16'>
@@ -365,16 +375,18 @@ const About = () => {
 
         <motion.div
           initial={{
-            scale: 0
+            y: 100,
+            opacity: 0
           }}
 
-          animate={{
-            scale: 1
+          whileInView={{
+            y: 0,
+            opacity: 1
           }}
 
           transition={{
             type: 'spring',
-            delay: .2
+            duration: 1.5
           }}
 
           className='w-full flex flex-col gap-10 lg:pl-16'>
@@ -449,15 +461,18 @@ const Skill = () => {
         }}
 
         initial={{
-          scale: 0
+          y: 100,
+          opacity: 0
         }}
 
-        animate={{
-          scale: 1
+        whileInView={{
+          y: 0,
+          opacity: 1
         }}
 
         transition={{
-          type: 'spring'
+          type: 'spring',
+          duration: 1.5
         }}
 
         className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
@@ -466,15 +481,13 @@ const Skill = () => {
 
       <motion.p
         initial={{
-          scale: 0
+          y: 100,
+          opacity: 0
         }}
 
-        animate={{
-          scale: 1,
-          transition: {
-            type: 'spring',
-            delay: .1
-          }
+        whileInView={{
+          y: 0,
+          opacity: 1
         }}
 
         whileHover={{
@@ -486,10 +499,14 @@ const Skill = () => {
         }}
 
         transition={{
-          type: 'spring'
+          type: 'spring',
+          duration: 1.5,
+          delay: 0.05
         }}
+
         className='text-slate-400 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
       </motion.p>
+
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataSkill.map((data, index) => (
           <motion.div
@@ -498,15 +515,15 @@ const Skill = () => {
             <motion.div
               key={data.id}
 
-              initial={{ scale: 0 }}
-              animate={{
-                scale: 1,
-                transition: {
-                  type: 'spring',
-                  delay: data.delay
-                }
+              initial={{
+                y: 100,
+                opacity: 0
               }}
 
+              whileInView={{
+                y: 0,
+                opacity: 1
+              }}
 
               drag
               dragConstraints={{
@@ -530,8 +547,11 @@ const Skill = () => {
               dragElastic={0.2}
 
               transition={{
-                type: 'spring'
+                type: 'spring',
+                duration: 1.5,
+                delay: data.delay
               }}
+
               className=' w-1/2 lg:w-1/3 '>
               {data.logo}
             </motion.div>
@@ -559,28 +579,53 @@ const JobDesk = () => {
         whileHover={{ cursor: 'grab' }}
         whileTap={{ cursor: 'grabbing', scale: 1.2 }}
 
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
+        initial={{
+          y: 100,
+          opacity: 0
+        }}
+
+        whileInView={{
+          y: 0,
+          opacity: 1
+        }}
+
         transition={{
           type: 'spring',
+          duration: 1.5
         }}
 
         className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
         What Can I Do
       </motion.p>
       <motion.p
+
+        initial={{
+          y: 100,
+          opacity: 0
+        }}
+
+        whileInView={{
+          y: 0,
+          opacity: 1
+        }}
+
         whileHover={{
           scale: 1.2
         }}
         transition={{
-          type: 'spring'
+          type: 'spring',
+          duration: 1.5,
+          delay: .1
         }}
 
         className='text-slate-400 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
       </motion.p>
+
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataJobDesk.map((data, index) => (
           <motion.div
+            key={index}
+
             drag
             dragConstraints={{
               top: -50,
@@ -589,8 +634,15 @@ const JobDesk = () => {
               left: -50,
             }}
 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            initial={{
+              y: 100,
+              opacity: 0
+            }}
+
+            whileInView={{
+              y: 0,
+              opacity: 1
+            }}
 
             whileHover={{
               scale: 1.1,
@@ -613,7 +665,8 @@ const JobDesk = () => {
 
             transition={{
               type: 'spring',
-              delay: data.delay
+              duration: 1.5,
+              delay: .2
             }}
 
             className=' aspect-square flex flex-col justify-center gap-5 center items-center hover:bg-white/5 rounded-md'>
