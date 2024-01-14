@@ -21,7 +21,7 @@ const LandingPage = () => {
       <About />
       <Skill />
       <JobDesk />
-      <ScrollTop/>
+      <ScrollTop />
     </div>
   )
 }
@@ -147,44 +147,46 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{
-            scale: 0
-          }}
-
-          whileInView={{
-            scale: 1
-          }}
-
-          drag
-          dragConstraints={{
-            top: -50,
-            right: 50,
-            bottom: 50,
-            left: -50,
-          }}
-          dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
-          dragElastic={0.5}
-
-          whileTap={{
-            scale: 1.5,
-            cursor: "grabbing"
-          }}
-
-          whileHover={{
-            scale: 1.5,
-            cursor: "grab"
-          }}
-
-          transition={{
-            type: "spring",
-          }}
 
           className='w-1/3 lg:w-1/4 xl:w-1/5 h-48 flex justify-center items-center'
 
-          style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', 
-          backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+        // style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', 
+        // backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
         >
-          {/* <img src={ImageProfile} alt="" /> */}
+          <motion.img
+            initial={{
+              scale: 0
+            }}
+
+            whileInView={{
+              scale: 1
+            }}
+
+            drag
+            dragConstraints={{
+              top: -50,
+              right: 50,
+              bottom: 50,
+              left: -50,
+            }}
+            dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
+            dragElastic={0.5}
+
+            whileTap={{
+              scale: 1.5,
+              cursor: "grabbing"
+            }}
+
+            whileHover={{
+              scale: 1.2,
+              cursor: "grab"
+            }}
+
+            transition={{
+              type: "spring",
+            }}
+
+            src={ImageProfile} alt="" />
         </motion.div>
       </div>
       <motion.div
