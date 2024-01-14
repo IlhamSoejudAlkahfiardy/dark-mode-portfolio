@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import ImageProfile from '../assets/images/profile/undraw.svg'
+
+import ImageProfile from '../assets/images/profile/hero.svg'
+
 import Programmer from '../assets/images/profile/programmer.svg'
 import { LiaHandPointer } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
@@ -178,7 +180,9 @@ const Hero = () => {
           }}
 
           className='w-1/3 lg:w-1/4 xl:w-1/5 h-48 flex justify-center items-center'
-          style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+
+          style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', 
+          backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
         >
           {/* <img src={ImageProfile} alt="" /> */}
         </motion.div>
@@ -281,9 +285,7 @@ const About = () => {
 
       <div className='w-full flex flex-col lg:flex-row justify-start mt-10 xl:mt-24'>
 
-        <div
-
-          className='w-full lg:w-1/4 flex'>
+        <div className='w-full lg:w-1/4 flex'>
 
           <motion.div
             drag
@@ -666,7 +668,7 @@ const JobDesk = () => {
             transition={{
               type: 'spring',
               duration: 1.5,
-              delay: .2
+              delay: data.delay
             }}
 
             className=' aspect-square flex flex-col justify-center gap-5 center items-center hover:bg-white/5 rounded-md'>
