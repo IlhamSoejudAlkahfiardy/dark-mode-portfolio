@@ -14,8 +14,8 @@ import ImageWeatherApp from "../images/project/image/weather-app.png";
 import ImageBank from "../images/project/image/bank.png";
 import ImageCashier from "../images/project/image/cashier.jpg";
 import ImageLMSKlojen from "../images/project/image/LMSKlojen.png";
-import ImageStudentLMS from "../images/project/image/student-lms.jpg";
-import ImageTeacherLMS from "../images/project/image/teacher-lms.jpg";
+import ImageStudentLMS from "../images/project/image/student-LMS.jpg";
+import ImageTeacherLMS from "../images/project/image/teacher-LMS.jpg";
 import ImageAuction from "../images/project/image/auction.png";
 import ImagePorto from "../images/project/image/porto.png";
 
@@ -50,29 +50,30 @@ const Project = [
     date: "23-10-2023",
     category: "latest",
     active: true,
+    delay: 0.1,
     stack: [
       {
-        name:'React JS',
+        name: 'React JS',
         tech: <FaReact className='inline-block w-full h-full text-sky-500' />
       },
       {
-        name:'Tailwind CSS',
+        name: 'Tailwind CSS',
         tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
       },
       {
-        name:'Express JS',
+        name: 'Express JS',
         tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
       },
       {
-        name:'Node JS',
+        name: 'Node JS',
         tech: <FaNodeJs className='inline-block w-full h-full text-lime-500' />
       },
       {
-        name:'Axios',
+        name: 'Axios',
         tech: <SiAxios className='inline-block w-full h-full text-purple-500' />
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -118,17 +119,18 @@ const Project = [
     date: "07-09-2023",
     category: "latest",
     active: true,
+    delay: 0.2,
     stack: [
       {
-        name:'React JS',
+        name: 'React JS',
         tech: <FaReact className='inline-block w-full h-full text-cyan-600' />
       },
       {
-        name:'Tailwind CSS',
+        name: 'Tailwind CSS',
         tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
       },
       {
-        name:'Axios',
+        name: 'Axios',
         tech: <SiAxios className='inline-block w-full h-full text-purple-500' />
       },
     ],
@@ -170,17 +172,18 @@ const Project = [
     date: "05-06-2023",
     category: "latest",
     active: false,
+    delay: 0.3,
     stack: [
       {
-        name:'Laravel',
+        name: 'Laravel',
         tech: <FaLaravel className="w-full h-full text-rose-700" />,
       },
       {
-        name:'Bootstrap',
+        name: 'Bootstrap',
         tech: <FaBootstrap className="w-full h-full text-violet-500" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -210,17 +213,18 @@ const Project = [
     date: "15-03-2023",
     category: "archive",
     active: true,
+    delay: 0.4,
     stack: [
       {
-        name:'HTML',
+        name: 'HTML',
         tech: <FaHtml5 className="w-full h-full text-orange-700" />
       },
       {
-        name:'CSS',
+        name: 'CSS',
         tech: <FaCss3Alt className="w-full h-full text-orange-600" />
       },
       {
-        name:'JS',
+        name: 'JS',
         tech: <IoLogoJavascript className="w-full h-full text-yellow-400" />
       },
     ],
@@ -243,13 +247,14 @@ const Project = [
     date: "2019",
     category: "archive",
     active: false,
+    delay: 0.5,
     stack: [
       {
-        name:'PHP',
+        name: 'PHP',
         tech: <FaPhp className="w-full h-full text-indigo-800" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -271,13 +276,14 @@ const Project = [
     date: "2022",
     category: "archive",
     active: false,
+    delay: 0.1,
     stack: [
       {
-        name:'Java',
+        name: 'Java',
         tech: <FaJava className="w-full h-full text-red-900" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -299,21 +305,22 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    delay: 0.2,
     stack: [
       {
-        name:'CodeIgniter 3',
+        name: 'CodeIgniter 3',
         tech: <DiCodeigniter className="w-full h-full text-red-600" />,
       },
       {
-        name:'Bootstrap',
+        name: 'Bootstrap',
         tech: <FaBootstrap className="w-full h-full text-violet-500" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
       {
-        name:'JQuery',
+        name: 'JQuery',
         tech: <DiJqueryLogo className="w-full h-full text-sky-800" />,
       },
     ],
@@ -363,13 +370,14 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    delay: 0.3,
     stack: [
       {
-        name:'Java',
+        name: 'Java',
         tech: <FaJava className="w-full h-full text-red-900" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -391,13 +399,14 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    delay: 0.4,
     stack: [
       {
-        name:'Java',
+        name: 'Java',
         tech: <FaJava className="w-full h-full text-red-900" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
     ],
@@ -419,21 +428,22 @@ const Project = [
     date: "2021",
     category: "archive",
     active: false,
+    delay: 0.5,
     stack: [
       {
-        name:'CodeIgniter 3',
+        name: 'CodeIgniter 3',
         tech: <DiCodeigniter className="w-full h-full text-red-600" />,
       },
       {
-        name:'Bootstrap',
+        name: 'Bootstrap',
         tech: <FaBootstrap className="w-full h-full text-violet-500" />,
       },
       {
-        name:'MySQL',
+        name: 'MySQL',
         tech: <SiMysql className="w-full h-full text-indigo-700" />,
       },
       {
-        name:'JQuery',
+        name: 'JQuery',
         tech: <DiJqueryLogo className="w-full h-full text-sky-800" />,
       },
     ],
@@ -451,17 +461,18 @@ const Project = [
     title: "Personal Portfolio Web",
     desc: "A personal web portfolio showcasing past projects, skills, personal bio, and a 'Contact Me' section for users interested in collaboration.",
     hosting: "https://skills-studio.my.id",
-    github: "https://github.com/IlhamSoejudAlkahfiardy/Auction.co.id/tree/master/Lelang",
+    github: "https://github.com/IlhamSoejudAlkahfiardy/dark-mode-portfolio/tree/master",
     date: "Now",
     category: "current",
     active: true,
+    delay: 0.1,
     stack: [
       {
-        name:'React JS',
+        name: 'React JS',
         tech: <FaReact className='inline-block w-full h-full text-cyan-600' />
       },
       {
-        name:'Tailwind CSS',
+        name: 'Tailwind CSS',
         tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
       },
     ],
