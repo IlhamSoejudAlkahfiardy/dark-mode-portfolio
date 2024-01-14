@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-import ImageProfile from '../assets/images/profile/hero.svg'
+import ImageProfile from '../assets/images/profile/profil2.png'
 
-import Programmer from '../assets/images/profile/programmer.svg'
+// import Programmer from '../assets/images/profile/programmer.svg'
+import Programmer from '../assets/images/profile/aboutme.jpg'
 import { LiaHandPointer } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
@@ -148,7 +149,7 @@ const Hero = () => {
 
         <motion.div
 
-          className='w-1/3 lg:w-1/4 xl:w-1/5 h-48 flex justify-center items-center'
+          className='w-1/3 lg:w-1/4 h-48 flex justify-center items-center '
 
         // style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', 
         // backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
@@ -159,15 +160,15 @@ const Hero = () => {
             }}
 
             whileInView={{
-              scale: 1
+              scale: 1.3
             }}
 
             drag
             dragConstraints={{
-              top: -50,
-              right: 50,
-              bottom: 50,
-              left: -50,
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
             }}
             dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
             dragElastic={0.5}
@@ -178,7 +179,6 @@ const Hero = () => {
             }}
 
             whileHover={{
-              scale: 1.2,
               cursor: "grab"
             }}
 
@@ -186,7 +186,7 @@ const Hero = () => {
               type: "spring",
             }}
 
-            src={ImageProfile} alt="" />
+            src={ImageProfile} className='grayscale' alt="" />
         </motion.div>
       </div>
       <motion.div
@@ -325,7 +325,7 @@ const About = () => {
               duration: 1.5
             }}
 
-            className='w-1/4 lg:w-full aspect-square h-fit rounded-md' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'center', backgroundSize: 'cover' }} />
+            className='w-1/4 lg:w-full aspect-square h-fit rounded-md grayscale' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
 
           <motion.div
             initial={{
