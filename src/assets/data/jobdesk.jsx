@@ -7,22 +7,26 @@ const JobDesk = [
     {
         id: 0,
         title: 'Web Development',
-        icon: <FaCode className="w-full h-full text-rose-700" />
+        icon: <FaCode className="w-full h-full text-rose-700" />,
+        delay:0.1
     },
     {
         id: 1,
         title: 'Database Administrator',
-        icon: <BsDatabaseFillGear className="w-full h-full text-gray-700" />
+        icon: <BsDatabaseFillGear className="w-full h-full text-gray-700" />,
+        delay:0.2
     },
     {
         id: 2,
         title: 'Front End Developer',
-        icon: <FaCss3Alt className="w-full h-full text-orange-600" />
+        icon: <FaCss3Alt className="w-full h-full text-orange-600" />,
+        delay:0.3
     },
     {
         id: 3,
         title: 'UI/UX Designer',
-        icon: <CgFigma className="w-full h-full text-indigo-700" />
+        icon: <CgFigma className="w-full h-full text-indigo-700" />,
+        delay:0.4
     },
 ]
 

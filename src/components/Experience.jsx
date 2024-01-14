@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+
 
 const Experience = () => {
     const baseURL = window.location.origin
@@ -22,7 +24,29 @@ const Experience = () => {
 
     return (
         <div className='w-full min-h-screen  xl:justify-center container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
-            <p className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>My Experience</p>
+            <motion.p
+                drag
+                dragConstraints={{
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0,
+                }}
+                dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
+
+                initial={{ scale:0 }}
+                animate={{ scale:1 }}
+
+                whileHover={{ cursor:'grab' }}
+                whileTap={{ cursor:'grabbing' }}
+
+                transition={{
+                    type: 'spring'
+                }}
+                className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>
+                My Experience
+            </motion.p>
+
             <div className='w-full mx-auto max-w-3xl h-fit grid grid-cols-5'>
                 <Colspan />
                 <div className='w-full h-24 flex justify-center items-end'>
@@ -40,9 +64,11 @@ const Experience = () => {
                     left={true}
                     major={"Major: Software Engineering"}
                     title={"Vocational High School"}
+                    delay={0.1}
                 />
 
-                <Timeline />
+                <Timeline
+                />
 
                 <Colspan />
                 <Colspan />
@@ -58,6 +84,7 @@ const Experience = () => {
                     title={"Presidental Secretariat"}
                     download={download}
                     url={setpres}
+                    delay={0.2}
                 />
 
                 <Detail
@@ -67,6 +94,7 @@ const Experience = () => {
                     left={true}
                     major={"Web Developer"}
                     title={"MejaKita Edunusa Mandiri"}
+                    delay={0.3}
                 />
 
                 <Timeline />
@@ -84,6 +112,7 @@ const Experience = () => {
                     left={false}
                     major={"Major: Diploma of Information System"}
                     title={"Merdeka Malang University"}
+                    delay={0.4}
                 />
 
                 <Detail
@@ -93,6 +122,7 @@ const Experience = () => {
                     left={true}
                     major={"Department: Interests and talents"}
                     title={"Student Executive Board"}
+                    delay={0.5}
                 />
 
                 <Timeline />
@@ -109,6 +139,7 @@ const Experience = () => {
                     left={false}
                     major={"Major: Web Developer"}
                     title={"IndevPro"}
+                    delay={0.6}
                 />
 
                 <Detail
@@ -120,6 +151,7 @@ const Experience = () => {
                     title={"Infinite Learning"}
                     download={download}
                     url={IL}
+                    delay={0.7}
                 />
 
                 <Timeline />
@@ -152,16 +184,68 @@ const Timeline = () => {
             <div className='w-px h-full border border-slate-500'>
 
             </div>
-            <div className='w-5 h-5 bg-blue-500 absolute rounded-full border-2 border-slate-200'>
+            <motion.div
+                drag
+                dragConstraints={{
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                }}
+                dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
+                dragElastic={.5}
 
-            </div>
+                whileHover={{
+                    cursor: 'grab'
+                }}
+
+                whileTap={{
+                    cursor: 'grabbing'
+                }}
+
+                transition={{
+                    type: 'spring'
+                }}
+                className='w-5 h-5 bg-blue-500 absolute rounded-full border-2 border-slate-200'>
+
+            </motion.div>
         </div>
     )
 }
 
-const Detail = ({ left, internship, date, title, major, certificate, download, url }) => {
+const Detail = ({ left, internship, date, title, major, certificate, download, url, delay }) => {
     return (
-        <div className={`w-full h-fit col-span-2 flex flex-col gap-2 p-3 ${left && "items-end"} `}>
+        <motion.div
+            drag
+            dragConstraints={{
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }}
+            dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
+
+            initial={{ scale:0 }}
+            animate={{ scale:1 }}
+
+            whileHover={{
+                cursor: 'grab',
+                scale: 1.1,
+                transition: {
+                    type: 'spring'
+                }
+            }}
+
+            whileTap={{
+                cursor: 'grabbing',
+            }}
+
+            transition={{
+                type: 'spring',
+                delay: delay
+            }}
+
+            className={`w-full h-fit col-span-2 flex flex-col gap-2 p-3 ${left && "items-end"} `}>
             {internship && (
                 <p className='text-xs text-slate-200 bg-green-600 w-fit px-2 py-1 rounded mb-3'>Internship</p>
             )}
@@ -171,7 +255,7 @@ const Detail = ({ left, internship, date, title, major, certificate, download, u
             {certificate && (
                 <Certificate download={download} url={url} />
             )}
-        </div>
+        </motion.div>
     )
 }
 

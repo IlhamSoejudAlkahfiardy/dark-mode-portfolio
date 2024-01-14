@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import HamburgerMenu from './HamburgerMenu'
 import { Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -14,12 +15,14 @@ const Navbar = () => {
     return (
         <>
             <HamburgerMenu open={open} setOpen={setOpen} />
+
             <NavbarMobile
                 open={open}
                 page={page}
                 cv={cv}
                 setOpen={setOpen}
             />
+
             <NavbarDesktop
                 page={page}
                 cv={cv}
@@ -32,31 +35,147 @@ const Navbar = () => {
 const NavbarDesktop = (props) => {
     return (
         <div className='w-full z-20 hidden container mx-auto h-24 bg-zinc-950 lg:flex items-center px-5 md:px-10'>
-            <div className='w-2/12 h-full  flex items-center'>
+            <motion.div
+                initial={{
+                    y: -50
+                }}
+
+                animate={{
+                    y: 0
+                }}
+
+                transition={{
+                    type: 'spring'
+                }}
+                className='w-2/12 h-full  flex items-center'>
                 <Link to="/" className='text-lg font-bold text-slate-200 tracking-wider'>
                     Skills Studio
                 </Link>
-            </div>
+            </motion.div>
             <div className='w-7/12 lg:w-6/12 xl:w-7/12 h-full flex items-center gap-16'>
                 <Link to="/" className=' flex flex-col w-fit gap-2'>
-                    <p className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>About Me</p>
+                    <motion.p
+                        initial={{
+                            y: -50
+                        }}
+
+                        animate={{
+                            y: 0
+                        }}
+
+                        whileHover={{
+                            y: -5,
+                            transition: {
+                                delay: 0
+                            }
+                        }}
+
+                        transition={{
+                            type: 'spring',
+                            delay: .05
+                        }}
+
+                        className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                        About Me
+                    </motion.p>
                 </Link>
                 <Link to="/project" className=' flex flex-col w-fit gap-2'>
-                    <p className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>Works</p>
+                    <motion.p
+                        initial={{
+                            y: -50
+                        }}
+
+                        animate={{
+                            y: 0
+                        }}
+
+                        whileHover={{
+                            y: -5,
+                            transition: {
+                                delay: 0
+                            }
+                        }}
+
+                        transition={{
+                            type: 'spring',
+                            delay: 0.1
+                        }}
+
+                        className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
+                        Works
+                    </motion.p>
                 </Link>
                 <Link to="/experience" className=' flex flex-col w-fit gap-2'>
-                    <p className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>Experience</p>
+                    <motion.p
+                        initial={{
+                            y: -50
+                        }}
+
+                        animate={{
+                            y: 0
+                        }}
+
+                        whileHover={{
+                            y: -5,
+                            transition: {
+                                delay: 0
+                            }
+                        }}
+
+                        transition={{
+                            type: 'spring',
+                            delay: 0.15
+                        }}
+
+                        className={`text-sm text-slate-200 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
+                        Experience
+                    </motion.p>
                 </Link>
             </div>
             <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
 
                 <div className='w-full flex justify-center items-center '>
-                    <Link to="/contact-me" className={`text-slate-200 text-sm hover:border-b hover:border-blue-500 tracking-wider leading-loose ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
-                        Contact me
+                    <Link to="/contact-me" className={`text-slate-200 text-sm tracking-wider leading-loose `}>
+                        <motion.p
+                            initial={{
+                                y: -50
+                            }}
+
+                            animate={{
+                                y: 0
+                            }}
+
+                            whileHover={{
+                                y: -5,
+                                transition: {
+                                    delay: 0
+                                }
+                            }}
+
+                            transition={{
+                                type: 'spring',
+                                delay: .2
+                            }}
+                            className={`${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}
+                        >
+                            Contact me
+                        </motion.p>
                     </Link>
                 </div>
                 <div className='w-full flex justify-center items-center hover:cursor-pointer'>
-                    <p onClick={()=>props.cv()} className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>Download my CV</p>
+                    <motion.p
+                        animate={{
+                            y: [5, -5, 5],
+                            transition: {
+                                repeat: Infinity,
+                                duration: 2,
+                                // type: 'spring'
+                            }
+                        }}
+
+                        onClick={() => props.cv()} className='text-xs  bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
+                        Download my CV
+                    </motion.p>
                 </div>
 
             </div>
@@ -67,26 +186,59 @@ const NavbarDesktop = (props) => {
 const NavbarMobile = (props) => {
 
     return (
-        <div className={`absolute w-full z-20 py-5 bg-zinc-950 lg:hidden flex-col justify-center items-center gap-5 transition-all duration-300 ${props.open ? "flex" : "hidden"}`}>
 
-            <Link to="/" className={`text-slate-200 text-center text-base p-2  ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
-                About Me
-            </Link>
-            <Link to="/project" className={`text-slate-200 text-center text-base p-2  ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
-                Works
-            </Link>
-            <Link to="/experience" className={`text-slate-200 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
-                Experience
-            </Link>
-            <Link to="/contact-me" className={`text-slate-200 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
-                Contact me
-            </Link>
-            <p onClick={()=>props.cv()} className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
-                Download my CV
-            </p>
+        <AnimatePresence>
+            {props.open && (
+                <motion.div
 
-        </div>
+                    initial={{
+                        y: -400
+                    }}
+
+                    animate={{
+                        y: 0
+                    }}
+
+                    exit={{
+                        y: -400
+                    }}
+
+                    transition={{ 
+                        type:'spring'
+                     }}
+
+                    className={`absolute w-full z-20 py-5 bg-zinc-950 lg:hidden flex flex-col justify-center items-center gap-5`}>
+
+                    <Link to="/" className={`text-slate-200 text-center text-base p-2  ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                        About Me
+                    </Link>
+                    <Link to="/project" className={`text-slate-200 text-center text-base p-2  ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
+                        Works
+                    </Link>
+                    <Link to="/experience" className={`text-slate-200 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
+                        Experience
+                    </Link>
+                    <Link to="/contact-me" className={`text-slate-200 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
+                        Contact me
+                    </Link>
+                    <motion.p
+                        animate={{
+                            y: [5, -5, 5],
+                            transition: {
+                                repeat: Infinity,
+                                duration: 2,
+                            }
+                        }}
+
+                        onClick={() => props.cv()} className={`text-slate-200 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
+                        Download my CV
+                    </motion.p>
+
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
+
 }
 
 export default Navbar
