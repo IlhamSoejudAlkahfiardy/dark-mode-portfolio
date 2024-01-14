@@ -43,25 +43,25 @@ const Skill = [
     id: 5,
     logo: <FaLaravel className="w-full h-full text-rose-700" />,
     title: "Laravel",
-    delay:0.6
+    delay:0.1
   },
   {
     id: 6,
     logo: <FaPhp className="w-full h-full text-indigo-800" />,
     title: "PHP",
-    delay:0.7
+    delay:0.2
   },
   {
     id: 7,
     logo: <IoLogoJavascript className="w-full h-full text-yellow-400" />,
     title: "JavaScript",
-    delay:0.8
+    delay:0.3
   },
   {
     id: 8,
     logo: <FaJava className="w-full h-full text-red-900" />,
     title: "Java",
-    delay:0.9
+    delay:0.4
   },
 ];
 

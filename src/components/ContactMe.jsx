@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import ImageContactMe from '../assets/images/profile/contact-me.svg'
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 
 const ContactMe = () => {
     const form = useRef();
@@ -30,8 +30,7 @@ const ContactMe = () => {
                     }}
 
                     className='w-full flex flex-col gap-5'>
-
-                    <motion.p
+                    <MotionConfig
                         whileTap={{
                             scale: 1.1,
                             cursor: 'pointer'
@@ -45,30 +44,21 @@ const ContactMe = () => {
                         transition={{
                             type: 'spring'
                         }}
+                    >
+                        <motion.p
+                            className='text-slate-200 z-10 text-4xl font-semibold w-fit leading-loose xl:py-2'>
+                            Hello, <br /> Tell Me About Your Project
+                        </motion.p>
 
-                        className='text-slate-200 z-10 text-4xl font-semibold w-fit leading-loose xl:py-2'>Hello, <br /> Tell Me About Your Project</motion.p>
+                        <motion.p
 
-                    <motion.p
-                        whileTap={{
-                            scale: 1.1,
-                            cursor: 'pointer'
-                        }}
-
-                        whileHover={{
-                            cursor: 'pointer',
-                            scale: 1.1,
-                        }}
-
-                        transition={{
-                            type: 'spring'
-                        }}
-
-                        className='text-slate-200 z-10 text-base lg:text-lg xl:text-xl w-fit leading-loose xl:py-2'>Tell me your wish, your dream project, even your dreams teammates. I'll be glad to help you. <br /> <span className='text-amber-400 font-semibold tracking-wider'>Cheers!🍻</span></motion.p>
+                            className='text-slate-200 z-10 text-base lg:text-lg xl:text-xl w-fit leading-loose xl:py-2'>
+                            Tell me your wish, your dream project, even your dreams teammates. I'll be glad to help you. <br /> <span className='text-amber-400 font-semibold tracking-wider'>Cheers!🍻</span>
+                        </motion.p>
+                    </MotionConfig>
                 </motion.div>
 
-                <motion.div
-
-                    className='w-full my-10 flex justify-center items-center'>
+                <div className='w-full my-10 flex justify-center items-center'>
                     <motion.img
 
                         initial={{ y: -500 }}
@@ -94,7 +84,7 @@ const ContactMe = () => {
                         }}
 
                         src={ImageContactMe} className='max-w-sm xl:scale-125' alt="" srcset="" />
-                </motion.div>
+                </div>
             </div>
 
             <form ref={form} onSubmit={sendEmail} className='w-full lg:max-w-2xl xl:max-w-3xl mx-auto flex flex-col gap-3 mt-10 overflow-hidden'>
