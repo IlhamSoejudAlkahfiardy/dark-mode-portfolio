@@ -61,27 +61,27 @@ const ContactMe = () => {
                 <div className='w-full my-10 flex justify-center items-center'>
                     <motion.img
 
-                        // initial={{ y: -500 }}
-                        // animate={{ y: 0 }}
+                        initial={{ y: -500 }}
+                        animate={{ y: 0 }}
 
-                        // transition={{
-                        //     type: 'spring',
-                        //     delay: 0.1
-                        // }}
+                        transition={{
+                            type: 'spring',
+                            delay: 0.1
+                        }}
 
-                        // whileHover={{
-                        //     scale: 1.1,
-                        //     cursor: 'grab',
-                        //     transition: {
-                        //         type: 'spring',
-                        //         delay: 0
-                        //     }
-                        // }}
+                        whileHover={{
+                            scale: 1.1,
+                            cursor: 'grab',
+                            transition: {
+                                type: 'spring',
+                                delay: 0
+                            }
+                        }}
 
-                        // whileTap={{
-                        //     scale: 1.2,
-                        //     cursor: 'grabbing'
-                        // }}
+                        whileTap={{
+                            scale: 1.2,
+                            cursor: 'grabbing'
+                        }}
 
                         src={ImageContactMe} className='max-w-sm xl:scale-125' alt="" srcset="" />
                 </div>
