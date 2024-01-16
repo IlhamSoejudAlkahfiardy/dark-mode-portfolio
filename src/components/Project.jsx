@@ -150,7 +150,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
             }}
 
             whileTap={{
-                scale: 0.9,
+                scale: 0.95,
                 transition: {
                     delay: 0
                 }

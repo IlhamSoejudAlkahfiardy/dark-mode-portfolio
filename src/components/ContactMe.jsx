@@ -2,8 +2,26 @@ import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import ImageContactMe from '../assets/images/profile/contact-me.svg'
 import { motion, MotionConfig } from 'framer-motion';
+import { useEffect } from 'react';
+import { useToast } from './ui/use-toast';
 
 const ContactMe = () => {
+    const { toast } = useToast()
+    const [emailFilled, setEmailFilled] = useState(false)
+    const [toastMessage, setToastMessage] = useState('Your message has been sent!')
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [message, setMessage] = useState('')
+
+    useEffect(() => {
+        if (name != '' && email != '' && subject != '' && message != '') {
+            setEmailFilled(true)
+        }
+
+    }, [name, email, subject, message])
+
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -11,11 +29,18 @@ const ContactMe = () => {
 
         emailjs.sendForm('service_gicilp8', 'template_s2oopoq', form.current, 'RhzUa3XxcxH8RlqgS')
             .then((result) => {
-                console.log(result.text);
-                console.log('Message sent!');
+                setToastMessage('Email has been sent!')
             }, (error) => {
                 console.log(error.text);
+                setToastMessage('email not sent, I ran out of tokens 😞')
             });
+
+        setEmail('')
+        setName('')
+        setSubject('')
+        setMessage('')
+        setEmailFilled(false)
+        setNotification(true)
     };
 
     return (
@@ -99,6 +124,7 @@ const ContactMe = () => {
                     className='text-slate-200 z-10 mb-10 mx-auto lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
                     Get in touch!
                 </motion.p>
+                
                 <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -110,11 +136,11 @@ const ContactMe = () => {
                     className='w-full flex flex-col md:flex-row gap-3'>
                     <div className='w-full flex flex-col gap-2'>
                         <p className='text-xs text-slate-200'>Name</p>
-                        <input name='user_name' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <input value={name} onChange={(e) => setName(e.target.value)} name='user_name' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
                     </div>
                     <div className='w-full flex flex-col gap-2'>
                         <p className='text-xs text-slate-200'>Email</p>
-                        <input name='user_email' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} name='user_email' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
                     </div>
                 </motion.div>
                 <motion.div
@@ -128,17 +154,26 @@ const ContactMe = () => {
                     className='w-full flex flex-col gap-5'>
                     <div className='w-full flex flex-col gap-2'>
                         <p className='text-xs text-slate-200'>Subject</p>
-                        <input name='subject' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <input value={subject} onChange={(e) => setSubject(e.target.value)} name='subject' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
                     </div>
                     <div className='w-full flex flex-col gap-2'>
                         <p className='text-xs text-slate-200'>Your Message</p>
                         <div className='w-full flex flex-col items-end gap-3 border border-slate-200/30 rounded-sm'>
-                            <textarea name="message" id="" className='w-full bg-zinc-950  text-slate-200 p-3 focus:outline-none ' rows="10"></textarea>
-                            <button type='submit' className='w-fit text-slate-200 bg-blue-500 px-4 mr-3 mb-3 hover:bg-blue-600 py-2 rounded-sm'>Submit</button>
+                            <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="message" id="" className='w-full bg-zinc-950  text-slate-200 p-3 focus:outline-none ' rows="10"></textarea>
+
+                            {emailFilled ? (
+                                <button onClick={() => { toast({ title: toastMessage }) }} type='submit' className='w-fit text-slate-200 bg-blue-500 px-4 mr-3 mb-3 hover:bg-blue-600 py-2 rounded-sm'>Submit</button>
+                            ) : (
+                                <button disabled type='submit' className='w-fit text-slate-200 border border-slate-200/30 hover:bg-zinc-500 hover:cursor-not-allowed px-4 mr-3 mb-3 py-2 rounded-sm'>Fill the form!</button>
+                            )}
                         </div>
+                        <p className='text-xs text-slate-200'>
+                            *please don't spam, my tokens will run out
+                        </p>
                     </div>
                 </motion.div>
             </form>
+
         </div>
     )
 }
