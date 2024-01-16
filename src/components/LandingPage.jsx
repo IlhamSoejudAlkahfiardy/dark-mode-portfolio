@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
 import ImageProfile from '../assets/images/profile/profil2.png'
-
-// import Programmer from '../assets/images/profile/programmer.svg'
 import Programmer from '../assets/images/profile/aboutme.jpg'
 import { LiaHandPointer } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
@@ -11,8 +8,15 @@ import DataSkill from '../assets/data/skill';
 import DataJobDesk from '../assets/data/jobdesk'
 
 // Framer Motion
-import { motion } from 'framer-motion';
+import { MotionConfig, motion } from 'framer-motion';
 import ScrollTop from './ScrollTop';
+
+// Icons
+import { FaGithub } from "react-icons/fa";
+import { FaGitlab } from "react-icons/fa6";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa";
 
 const LandingPage = () => {
 
@@ -119,7 +123,9 @@ const Hero = () => {
             className=' text-blue-500 text-4xl xl:text-5xl font-bold hover:cursor-pointer w-fit'>
             {textSkill[currentTextIndex]}
           </motion.p>
+
           <p className='text-slate-200 lg:text-lg xl:text-xl'>and my skills is</p>
+
           <motion.p
             drag
             dragConstraints={{
@@ -147,13 +153,7 @@ const Hero = () => {
           </motion.p>
         </motion.div>
 
-        <motion.div
-
-          className='w-1/3 lg:w-1/4 h-48 flex justify-center items-center '
-
-        // style={{ backgroundImage: `url(${ImageProfile})`, backgroundSize: 'contain', 
-        // backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
-        >
+        <motion.div className='w-1/3 lg:w-1/4 h-48 flex justify-center items-center '>
           <motion.img
             initial={{
               scale: 0
@@ -171,7 +171,7 @@ const Hero = () => {
               left: 0,
             }}
             dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
-            dragElastic={0.5}
+            dragElastic={0.3}
 
             whileTap={{
               scale: 1.5,
@@ -188,59 +188,85 @@ const Hero = () => {
 
             src={ImageProfile} className='grayscale' alt="" />
         </motion.div>
+
       </div>
-      <motion.div
-        initial={{
-          scale: 0
-        }}
 
-        whileInView={{
-          scale: 1
-        }}
-
-        transition={{
-          type: 'spring',
-          delay: .3
-        }}
-
-        className='w-full mt-16 flex flex-col md:flex-row gap-5'>
+      <div className='w-full flex flex-col gap-5'>
 
         <motion.div
-          whileTap={{
-            scale: .9,
-            transition: {
-              type: 'spring'
-            }
+          initial={{
+            scale: 0
           }}
-        >
-          <Link to="/project" className='w-fit text-slate-200 text-sm bg-blue-500 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-600  hover:cursor-pointer'>
-            See my recent projects
-            <LiaHandPointer className='inline-block' />
-          </Link>
+
+          whileInView={{
+            scale: 1
+          }}
+
+          transition={{
+            type: 'spring',
+            delay: .3
+          }}
+
+          className='w-full mt-16 flex flex-col md:flex-row gap-5'>
+
+          <motion.div
+            whileTap={{
+              scale: .9,
+              transition: {
+                type: 'spring'
+              }
+            }}
+          >
+            <Link to="/project" className='w-fit text-slate-200 text-sm bg-blue-500 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-600  hover:cursor-pointer'>
+              See my recent projects
+              <LiaHandPointer className='inline-block' />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            whileTap={{
+              scale: .9,
+              transition: {
+                type: 'spring'
+              }
+            }}
+          >
+            <Link to="/experience" className='w-fit text-blue-500 text-sm bg-zinc-950 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-500 hover:text-slate-200  hover:cursor-pointer'>
+              See my experience
+              <CiStar className='inline-block' />
+            </Link>
+          </motion.div>
         </motion.div>
 
-        <motion.div
-          whileTap={{
-            scale: .9,
-            transition: {
-              type: 'spring'
-            }
-          }}
-        >
-          <Link to="/experience" className='w-fit text-blue-500 text-sm bg-zinc-950 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-500 hover:text-slate-200  hover:cursor-pointer'>
-            See my experience
-            <CiStar className='inline-block' />
-          </Link>
-        </motion.div>
-      </motion.div>
+      </div>
     </div>
   )
 }
 
 const About = () => {
+  const [github, setGithub] = useState(false)
+  const [gitlab, setGitlab] = useState(false)
+  const [ig, setIG] = useState(false)
+  const [linkedin, setLinkedin] = useState(false)
+  const [telegram, setTelegram] = useState(false)
+
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
   const age = currentYear - 2003
+
+  const [screenWidth, setScreenWidth] = useState(0)
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth)
+  }
+
+  const linkSocmed = (url) => {
+    window.open(url)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  }, [])
 
   const dragConstraints = {
     left: 0,
@@ -271,6 +297,8 @@ const About = () => {
 
         whileTap={{
           opacity: 1.2,
+          scale: 1.2,
+          cursor: 'grabbing'
         }}
 
         whileHover={{
@@ -298,6 +326,7 @@ const About = () => {
               left: 0
             }}
             dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
+            dragElastic={.3}
 
             whileHover={{
               cursor: 'grab'
@@ -424,6 +453,7 @@ const About = () => {
 
             </div>
           </div>
+
           <div className='flex flex-col gap-2 mt-10 lg:mt-0'>
 
             <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>Hello! I am currently pursuing my studies at <span className='text-blue-500'>Merdeka Malang University</span>, where I am enrolled in the <span className='text-blue-500'>Faculty of Information Technology</span>, specifically in the <span className='text-blue-500'>D3 Information Systems program.</span> </p>
@@ -431,6 +461,317 @@ const About = () => {
             <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>My academic journey has fostered a strong interest in <span className='text-blue-500'>programming and web development</span>. Proficient in technologies like <span className='text-blue-500'>React.js, Tailwind CSS, CodeIgniter, and Laravel,</span> I am passionate about crafting innovative solutions and user-friendly interfaces. </p>
 
             <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>Beyond coding, I find joy in exploring the world of music, a hobby that complements my creative mindset. Through hands-on experiences and continuous learning, I am dedicated to evolving as a tech enthusiast and contributing to the ever-evolving landscape of information technology.  </p>
+
+          </div>
+
+          <div className='w-full flex flex-wrap gap-5'>
+
+            <motion.div
+              initial={{
+                y: 100,
+                opacity: 0
+              }}
+
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 1.5,
+                  delay: .1
+                }
+              }}
+
+              whileHover={{
+                cursor: 'pointer',
+                width: 130
+              }}
+
+              whileTap={{
+                cursor: 'pointer',
+                width: 130
+              }}
+
+              layout
+
+              onMouseEnter={() => setGithub(!github)}
+              onMouseLeave={() => setGithub(!github)}
+              onClick={() => linkSocmed('https://github.com/IlhamSoejudAlkahfiardy')}
+
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              <FaGithub className='inline-block w-fit h-full text-slate-900' />
+
+              {github && (
+                <motion.div
+                  initial={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  animate={{
+                    width: 65,
+                    opacity: 1
+                  }}
+
+                  exit={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  transition={{
+                    type: 'spring'
+                  }}
+
+                  className='w-fit flex justify-end items-center'>
+                  <p className='text-sm'>GitHub</p>
+                </motion.div>
+              )}
+            </motion.div>
+
+            <motion.div
+              initial={{
+                y: 100,
+                opacity: 0
+              }}
+
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 1.5,
+                  delay: .2
+                }
+              }}
+
+              whileHover={{
+                cursor: 'pointer',
+                width: 130
+              }}
+
+              whileTap={{
+                cursor: 'pointer',
+                width: 130
+              }}
+
+              layout
+
+              onMouseEnter={() => setGitlab(!gitlab)}
+              onMouseLeave={() => setGitlab(!gitlab)}
+              onClick={() => linkSocmed('https://gitlab.com/alkahfiardyIlhamSoejud')}
+
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              <FaGitlab className='inline-block w-fit h-full text-orange-600' />
+
+              {gitlab && (
+                <motion.div
+                  initial={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  animate={{
+                    width: 65,
+                    opacity: 1
+                  }}
+
+                  exit={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  transition={{
+                    type: 'spring'
+                  }}
+
+                  className='w-fit flex justify-end items-center'>
+                  <p className='text-sm'>GitLab</p>
+                </motion.div>
+              )}
+
+            </motion.div>
+
+            <motion.div
+              initial={{
+                y: 100,
+                opacity: 0
+              }}
+
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 1.5,
+                  delay: .3
+                }
+              }}
+
+              whileHover={{
+                cursor: 'pointer',
+                width: 155
+              }}
+
+              whileTap={{
+                cursor: 'pointer',
+                width: 155
+              }}
+
+              onMouseEnter={() => setIG(!ig)}
+              onMouseLeave={() => setIG(!ig)}
+              onClick={() => linkSocmed('https://www.instagram.com/ilhamsoejud/')}
+
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              <FaInstagramSquare className='inline-block w-fit h-full text-fuchsia-600' />
+
+              {ig && (
+                <motion.div
+                  initial={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  animate={{
+                    width: 90,
+                    opacity: 1
+                  }}
+
+                  exit={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  transition={{
+                    type: 'spring'
+                  }}
+
+                  className='w-fit flex justify-end items-center'>
+                  <p className='text-sm'>Instagram</p>
+                </motion.div>
+              )}
+            </motion.div>
+
+            <motion.div
+              initial={{
+                y: 100,
+                opacity: 0
+              }}
+
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 1.5,
+                  delay: .4
+                }
+              }}
+
+              whileHover={{
+                cursor: 'pointer',
+                width: 140
+              }}
+
+              whileTap={{
+                cursor: 'pointer',
+                width: 140
+              }}
+
+              onMouseEnter={() => setLinkedin(!linkedin)}
+              onMouseLeave={() => setLinkedin(!linkedin)}
+              onClick={() => linkSocmed('https://www.linkedin.com/in/ilhamsoejudalkahfiardy/')}
+
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              <FaLinkedin className='inline-block w-fit h-full text-blue-700' />
+
+              {linkedin && (
+                <motion.div
+                  initial={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  animate={{
+                    width: 75,
+                    opacity: 1
+                  }}
+
+                  exit={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  transition={{
+                    type: 'spring'
+                  }}
+
+                  className='w-fit flex justify-end items-center'>
+                  <p className='text-sm'>Linkedin</p>
+                </motion.div>
+              )}
+            </motion.div>
+
+            <motion.div
+              initial={{
+                y: 100,
+                opacity: 0
+              }}
+
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 1.5,
+                  delay: .5
+                }
+              }}
+
+              whileHover={{
+                cursor: 'pointer',
+                width: 150
+              }}
+
+              whileTap={{
+                cursor: 'pointer',
+                width: 150
+              }}
+
+              onMouseEnter={() => setTelegram(!telegram)}
+              onMouseLeave={() => setTelegram(!telegram)}
+              onClick={() => linkSocmed('https://t.me/IlhamSoejudA')}
+
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              <FaTelegram className='inline-block w-fit
+               h-full text-blue-500' />
+
+              {telegram && (
+                <motion.div
+                  initial={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  animate={{
+                    width: 85,
+                    opacity: 1
+                  }}
+
+                  exit={{
+                    width: 0,
+                    opacity: 0
+                  }}
+
+                  transition={{
+                    type: 'spring'
+                  }}
+
+                  className='w-fit flex justify-end items-center'>
+                  <p className='text-sm'>Telegram</p>
+                </motion.div>
+              )}
+
+            </motion.div>
 
           </div>
         </motion.div>
