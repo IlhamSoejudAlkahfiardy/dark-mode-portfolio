@@ -52,7 +52,7 @@ const Project = () => {
 
             <div className='w-full flex flex-col gap-5 xl:mt-10'>
                 <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setLatestOpen(!latestOpen)}>
-                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Latest Project</p>
+                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Selected Project</p>
                     <FaCaretRight className={`inline-block scale-125 text-slate-200 ${latestOpen ? "rotate-90" : "rotate-0"}`} />
                 </motion.div>
                 <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>

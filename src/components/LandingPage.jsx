@@ -8,8 +8,7 @@ import DataSkill from '../assets/data/skill';
 import DataJobDesk from '../assets/data/jobdesk'
 
 // Framer Motion
-import { MotionConfig, motion } from 'framer-motion';
-import ScrollTop from './ScrollTop';
+import {  motion } from 'framer-motion';
 
 // Icons
 import { FaGithub } from "react-icons/fa";
@@ -26,7 +25,7 @@ const LandingPage = () => {
       <About />
       <Skill />
       <JobDesk />
-      <ScrollTop />
+      
     </div>
   )
 }
@@ -37,6 +36,8 @@ const Hero = () => {
   const myName = ['Ilham', 'Soejud', 'Alkahfiardy']
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentSkillSetIndex, setCurrentSkillSetIndex] = useState(0);
+  const [innerWidth, setInnerWidth] = useState(0)
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -44,6 +45,11 @@ const Hero = () => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % textSkill.length);
       setCurrentSkillSetIndex((prevIndex) => (prevIndex + 1) % textSkillSet.length)
     }, 2000);
+
+    setInnerWidth(window.innerWidth)
+
+    window.addEventListener('resize', () => { setInnerWidth(window.innerWidth) })
+    window.removeEventListener('resize', () => { setInnerWidth(window.innerWidth) })
 
     // Membersihkan interval saat komponen dibongkar
     return () => clearInterval(intervalId);
@@ -65,7 +71,7 @@ const Hero = () => {
             type: 'spring'
           }}
           className='w-2/3 flex flex-col gap-3'>
-          <p className='text-slate-200 lg:text-lg xl:text-xl'>Hi Everyone, my name is</p>
+          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>Hi Everyone, my name is</p>
 
           <motion.p
             drag
@@ -89,16 +95,20 @@ const Hero = () => {
             transition={{
               type: 'spring'
             }}
-            className='text-slate-200 text-4xl xl:text-5xl font-bold  w-fit'>
+            className='dark:text-slate-200 text-zinc-950 text-4xl xl:text-5xl font-bold  w-fit'>
             Alkahfiardy
           </motion.p>
 
-          <motion.p
-
-            className='text-slate-200 lg:text-lg xl:text-xl'>
+          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>
             Im a
-          </motion.p>
+          </p>
+
           <motion.p
+            key={currentTextIndex}
+
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+
             drag
             dragConstraints={{
               top: -20,
@@ -124,9 +134,10 @@ const Hero = () => {
             {textSkill[currentTextIndex]}
           </motion.p>
 
-          <p className='text-slate-200 lg:text-lg xl:text-xl'>and my skills is</p>
+          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>and my skills is</p>
 
           <motion.p
+
             drag
             dragConstraints={{
               top: -20,
@@ -153,7 +164,49 @@ const Hero = () => {
           </motion.p>
         </motion.div>
 
-        <motion.div className='w-1/3 lg:w-1/4 h-48 flex justify-center items-center '>
+        <div className='w-1/3 lg:w-1/4 h-48 flex justify-center items-center relative'>
+          <motion.svg
+            initial={{
+              x: 0,
+              scale: 0,
+              rotate: 0
+            }}
+
+            whileInView={{
+              x: innerWidth <= 768 ? -25 : -50,
+              rotate: 90,
+              scale: 1,
+              transition: {
+                type: 'spring',
+                delay: .2
+              }
+            }}
+
+            className='absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path className='' fill="#3B82F6" d="M29.8,-47.5C41.9,-44.7,57.1,-43.3,67.8,-35.6C78.4,-27.9,84.5,-13.9,82.9,-0.9C81.3,12.1,72.1,24.2,61.7,32.3C51.3,40.5,39.8,44.7,29.3,53C18.8,61.3,9.4,73.8,-2.9,78.8C-15.1,83.8,-30.3,81.2,-38,71.3C-45.8,61.4,-46.2,44.2,-54.3,31.1C-62.3,17.9,-78.1,9,-79.2,-0.7C-80.4,-10.3,-67,-20.6,-53.5,-24.2C-39.9,-27.9,-26.2,-24.8,-17.3,-29.4C-8.3,-34,-4.2,-46.3,2.4,-50.4C8.9,-54.5,17.8,-50.3,29.8,-47.5Z" transform="translate(100 100)" />
+          </motion.svg>
+
+          <motion.svg
+            initial={{
+              scale: 0,
+              x: 0,
+              y: 0,
+            }}
+
+            whileInView={{
+              x: innerWidth <= 768 ? 25 : 50,
+              y: innerWidth <= 768 ? 75 : 150,
+              scale: 1,
+              transition: {
+                type: 'spring',
+                delay: .3
+              }
+            }}
+
+            className='absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#3B82F6" d="M25.9,-46.2C35.5,-39.4,46.4,-36.2,53.1,-29.1C59.9,-22,62.4,-11,62.6,0.1C62.7,11.2,60.4,22.3,57.2,35.6C54,48.9,50,64.2,40.3,67.5C30.6,70.7,15.3,61.8,6.5,50.6C-2.4,39.4,-4.7,25.8,-13.1,21.8C-21.4,17.8,-35.7,23.3,-49.8,21.3C-63.9,19.2,-77.8,9.6,-76.1,1C-74.4,-7.7,-57.2,-15.4,-46.3,-23.1C-35.5,-30.7,-31,-38.4,-24.4,-46.8C-17.7,-55.2,-8.9,-64.4,-0.3,-63.8C8.2,-63.2,16.4,-52.9,25.9,-46.2Z" transform="translate(100 100)" />
+          </motion.svg>
+
           <motion.img
             initial={{
               scale: 0
@@ -186,8 +239,8 @@ const Hero = () => {
               type: "spring",
             }}
 
-            src={ImageProfile} className='grayscale' alt="" />
-        </motion.div>
+            src={ImageProfile} className='dark:grayscale' alt="" />
+        </div>
 
       </div>
 
@@ -217,13 +270,21 @@ const Hero = () => {
               }
             }}
           >
-            <Link to="/project" className='w-fit text-slate-200 text-sm bg-blue-500 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-600  hover:cursor-pointer'>
+            <Link to="/project" className='w-fit text-slate-200 text-sm bg-gradient-to-r from-blue-500 to-blue-600 border-2 border-slate-200/20 px-4 py-3 rounded flex items-center gap-2 hover:from-blue-600 hover:to-blue-700  hover:cursor-pointer'>
               See my recent projects
               <LiaHandPointer className='inline-block' />
             </Link>
           </motion.div>
 
           <motion.div
+
+          whileHover={{ 
+            scale: 1.05,
+            transition: {
+              type: 'spring'
+            }
+           }}
+
             whileTap={{
               scale: .9,
               transition: {
@@ -231,7 +292,7 @@ const Hero = () => {
               }
             }}
           >
-            <Link to="/experience" className='w-fit text-blue-500 text-sm bg-zinc-950 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2 hover:bg-blue-500 hover:text-slate-200  hover:cursor-pointer'>
+            <Link to="/experience" className='w-fit text-blue-500 text-sm dark:bg-zinc-950 bg-slate-200 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2'>
               See my experience
               <CiStar className='inline-block' />
             </Link>
@@ -309,7 +370,7 @@ const About = () => {
           type: 'spring',
           duration: 1.5
         }}
-        className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
         About Me
       </motion.p>
 
@@ -354,7 +415,7 @@ const About = () => {
               duration: 1.5
             }}
 
-            className='w-1/4 lg:w-full aspect-square h-fit rounded-md grayscale' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
+            className='w-1/4 lg:w-full aspect-square h-fit rounded-md dark:grayscale' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
 
           <motion.div
             initial={{
@@ -379,7 +440,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Name
               </p>
-              <p className='font-bold text-slate-200'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700'>
                 Ilham Soejud Alkahfiardy
               </p>
 
@@ -388,7 +449,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Address
               </p>
-              <p className='font-bold text-slate-200'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700'>
                 Malang, East Java
               </p>
 
@@ -397,7 +458,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Age
               </p>
-              <p className='font-bold text-slate-200'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700'>
                 {age} y.o at 30 May
               </p>
 
@@ -429,7 +490,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Name
               </p>
-              <p className='font-bold text-slate-200 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
                 Ilham Soejud Alkahfiardy
               </p>
 
@@ -438,7 +499,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Address
               </p>
-              <p className='font-bold text-slate-200 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
                 Malang, East Java
               </p>
 
@@ -447,7 +508,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Age
               </p>
-              <p className='font-bold text-slate-200 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
                 {age} y.o at 30 May
               </p>
 
@@ -456,11 +517,11 @@ const About = () => {
 
           <div className='flex flex-col gap-2 mt-10 lg:mt-0'>
 
-            <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>Hello! I am currently pursuing my studies at <span className='text-blue-500'>Merdeka Malang University</span>, where I am enrolled in the <span className='text-blue-500'>Faculty of Information Technology</span>, specifically in the <span className='text-blue-500'>D3 Information Systems program.</span> </p>
+            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>Hello! I am currently pursuing my studies at <span className='text-blue-500'>Merdeka Malang University</span>, where I am enrolled in the <span className='text-blue-500'>Faculty of Information Technology</span>, specifically in the <span className='text-blue-500'>D3 Information Systems program.</span> </p>
 
-            <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>My academic journey has fostered a strong interest in <span className='text-blue-500'>programming and web development</span>. Proficient in technologies like <span className='text-blue-500'>React.js, Tailwind CSS, CodeIgniter, and Laravel,</span> I am passionate about crafting innovative solutions and user-friendly interfaces. </p>
+            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>My academic journey has fostered a strong interest in <span className='text-blue-500'>programming and web development</span>. Proficient in technologies like <span className='text-blue-500'>React.js, Tailwind CSS, CodeIgniter, and Laravel,</span> I am passionate about crafting innovative solutions and user-friendly interfaces. </p>
 
-            <p className='text-slate-200 text-sm xl:text-base indent-4 text-justify leading-loose'>Beyond coding, I find joy in exploring the world of music, a hobby that complements my creative mindset. Through hands-on experiences and continuous learning, I am dedicated to evolving as a tech enthusiast and contributing to the ever-evolving landscape of information technology.  </p>
+            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>Beyond coding, I find joy in exploring the world of music, a hobby that complements my creative mindset. Through hands-on experiences and continuous learning, I am dedicated to evolving as a tech enthusiast and contributing to the ever-evolving landscape of information technology.  </p>
 
           </div>
 
@@ -498,8 +559,8 @@ const About = () => {
               onMouseLeave={() => setGithub(!github)}
               onClick={() => linkSocmed('https://github.com/IlhamSoejudAlkahfiardy')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
-              <FaGithub className='inline-block w-fit h-full text-slate-900' />
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              <FaGithub className='inline-block w-fit h-full text-zinc-900' />
 
               {github && (
                 <motion.div
@@ -560,7 +621,7 @@ const About = () => {
               onMouseLeave={() => setGitlab(!gitlab)}
               onClick={() => linkSocmed('https://gitlab.com/alkahfiardyIlhamSoejud')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
               <FaGitlab className='inline-block w-fit h-full text-orange-600' />
 
               {gitlab && (
@@ -621,7 +682,8 @@ const About = () => {
               onMouseLeave={() => setIG(!ig)}
               onClick={() => linkSocmed('https://www.instagram.com/ilhamsoejud/')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+
               <FaInstagramSquare className='inline-block w-fit h-full text-fuchsia-600' />
 
               {ig && (
@@ -681,7 +743,7 @@ const About = () => {
               onMouseLeave={() => setLinkedin(!linkedin)}
               onClick={() => linkSocmed('https://www.linkedin.com/in/ilhamsoejudalkahfiardy/')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
               <FaLinkedin className='inline-block w-fit h-full text-blue-700' />
 
               {linkedin && (
@@ -741,7 +803,7 @@ const About = () => {
               onMouseLeave={() => setTelegram(!telegram)}
               onClick={() => linkSocmed('https://t.me/IlhamSoejudA')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md'>
+              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
               <FaTelegram className='inline-block w-fit
                h-full text-blue-500' />
 
@@ -783,7 +845,6 @@ const About = () => {
 }
 
 const Skill = () => {
-  const [zoom, setZoom] = useState(false)
   return (
     <div className='w-full h-full  relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
       <motion.p
@@ -820,7 +881,7 @@ const Skill = () => {
           duration: 1.5
         }}
 
-        className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
+        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
         My Skill-set
       </motion.p>
 
@@ -849,14 +910,14 @@ const Skill = () => {
           delay: 0.05
         }}
 
-        className='text-slate-400 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
+        className='dark:text-slate-400 text-slate-600 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
       </motion.p>
 
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataSkill.map((data, index) => (
           <motion.div
 
-            className=' aspect-square flex flex-col justify-center items-center hover:bg-white/5 rounded-md'>
+            className=' aspect-square flex flex-col justify-center items-center dark:hover:bg-white/5 hover:bg-white/20 rounded-md'>
             <motion.div
               key={data.id}
 
@@ -939,7 +1000,7 @@ const JobDesk = () => {
           duration: 1.5
         }}
 
-        className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
         What Can I Do
       </motion.p>
       <motion.p
@@ -963,7 +1024,7 @@ const JobDesk = () => {
           delay: .1
         }}
 
-        className='text-slate-400 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
+        className='dark:text-slate-400 text-slate-600 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
       </motion.p>
 
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
@@ -1018,7 +1079,7 @@ const JobDesk = () => {
             <div className='w-1/2 lg:w-1/3'>
               {data.icon}
             </div>
-            <p className='text-slate-200 text-xs md:text-sm'>{data.title} </p>
+            <p className='dark:text-slate-200 text-zinc-950 text-xs md:text-sm'>{data.title} </p>
           </motion.div>
         ))}
 
