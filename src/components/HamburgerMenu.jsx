@@ -2,10 +2,9 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
 const HamburgerMenu = (props) => {
     return (
-        <div className='flex container mx-auto lg:hidden justify-between items-center px-3 md:px-6 bg-zinc-950'>
+        <div className='flex container mx-auto lg:hidden justify-between items-center px-3 md:px-6 dark:bg-zinc-950 bg-slate-200'>
             <motion.button
 
                 onClick={() => props.setOpen(!props.open)}
@@ -39,7 +38,7 @@ const HamburgerMenu = (props) => {
                     />
                 </motion.svg>
             </motion.button>
-            <Link to="/" className='text-lg font-bold text-slate-200 tracking-wider'>
+            <Link to="/" className='text-lg font-bold dark:text-slate-200 text-zinc-950 tracking-wider'>
                 <motion.p
                     initial={{
                         scale: 0

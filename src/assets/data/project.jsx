@@ -29,7 +29,7 @@ import { FaLaravel } from "react-icons/fa";
 import { FaPhp } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { FaJava } from "react-icons/fa";
-
+import { FiFramer } from "react-icons/fi";
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { SiAxios } from "react-icons/si";
@@ -132,6 +132,10 @@ const Project = [
       {
         name: 'Axios',
         tech: <SiAxios className='inline-block w-full h-full text-purple-500' />
+      },
+      {
+        name: 'Framer Motion',
+        tech: <FiFramer className='inline-block w-full h-full text-stone-200' />
       },
     ],
     teams: [
@@ -474,6 +478,10 @@ const Project = [
       {
         name: 'Tailwind CSS',
         tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Framer Motion',
+        tech: <FiFramer className='inline-block w-full h-full text-stone-200' />
       },
     ],
     teams: [

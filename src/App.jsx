@@ -6,10 +6,9 @@ import Experience from './pages/Experience'
 import ContactMe from './pages/ContactMe'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Project />} />
