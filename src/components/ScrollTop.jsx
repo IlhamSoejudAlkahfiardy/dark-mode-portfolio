@@ -8,7 +8,7 @@ const ScrollTop = () => {
     const handleScroll = () => {
         const scrollY = window.scrollY
 
-        if (scrollY >= 1700) {
+        if (scrollY >= 500) {
             setIsVisible(true)
         } else {
             setIsVisible(false)
@@ -64,9 +64,9 @@ const ScrollTop = () => {
                         scale: .8,
                     }}
 
-                    onClick={scrollToTop} className='fixed right-5 bottom-5 w-12 h-12 border border-slate-200/30 flex justify-center items-center rounded-md'>
+                    onClick={scrollToTop} className='z-50 fixed right-5 bottom-5 w-12 h-12 dark:bg-zinc-950 bg-slate-200 border dark:border-slate-200/30 border-zinc-950/30 flex justify-center items-center rounded-md transition-colors duration-500'>
                     <p className='text-slate-200 text-xs'>
-                        <IoIosArrowUp className='inline-block text-slate-200 scale-125' />
+                        <IoIosArrowUp className='inline-block dark:text-slate-200 text-zinc-700 scale-125 transition-colors duration-500' />
                     </p>
                 </motion.div>
             )}

@@ -48,7 +48,7 @@ const Navbar = () => {
 
 const NavbarDesktop = (props) => {
     return (
-        <div className='w-full z-20 hidden container mx-auto h-24 dark:bg-zinc-950 bg-slate-200 lg:flex items-center px-5 md:px-10'>
+        <div className='w-full z-20 hidden container mx-auto h-24 dark:bg-zinc-950 bg-slate-200 lg:flex items-center px-5 md:px-10 transition-colors duration-500'>
             <motion.div
                 initial={{
                     y: -50
@@ -62,7 +62,7 @@ const NavbarDesktop = (props) => {
                     type: 'spring'
                 }}
                 className='w-2/12 h-full  flex items-center'>
-                <Link to="/" className='text-lg font-bold dark:text-slate-200 text-zinc-950 tracking-wider'>
+                <Link to="/" className='text-lg font-bold dark:text-slate-200 text-zinc-950 transition-colors duration-500 tracking-wider'>
                     Skills Studio
                 </Link>
             </motion.div>
@@ -89,7 +89,7 @@ const NavbarDesktop = (props) => {
                             delay: .05
                         }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-950 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
                         About Me
                     </motion.p>
                 </Link>
@@ -115,7 +115,7 @@ const NavbarDesktop = (props) => {
                             delay: 0.1
                         }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-950 tracking-wider  leading-loose ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
                         Works
                     </motion.p>
                 </Link>
@@ -141,7 +141,7 @@ const NavbarDesktop = (props) => {
                             delay: 0.15
                         }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-950 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
                         Experience
                     </motion.p>
                 </Link>
@@ -149,7 +149,7 @@ const NavbarDesktop = (props) => {
             <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
 
                 <div className='w-full flex justify-center items-center '>
-                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-950 text-sm tracking-wider leading-loose `}>
+                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm tracking-wider leading-loose `}>
                         <motion.p
                             initial={{
                                 y: -50
@@ -187,7 +187,7 @@ const NavbarDesktop = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv(props.resume)} className='text-xs dark:text-zinc-950 text-slate-200 bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
+                        onClick={() => props.cv(props.resume)} className='text-xs dark:text-zinc-950 text-slate-200 transition-colors duration-500 bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
                         Download my CV
                     </motion.p>
                 </div>
@@ -221,18 +221,18 @@ const NavbarMobile = (props) => {
                         type: 'spring'
                     }}
 
-                    className={`absolute w-full z-20 py-5 dark:bg-zinc-950 bg-slate-200 lg:hidden flex flex-col justify-center items-center gap-5`}>
+                    className={`absolute w-full z-20 py-5 dark:bg-zinc-950 bg-slate-200 lg:hidden flex flex-col justify-center items-center gap-5 transition-colors duration-500`}>
 
-                    <Link to="/" className={`dark:text-slate-200 text-zinc-950 text-center text-base p-2  ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                    <Link to="/" className={`dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-center text-base p-2  ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
                         About Me
                     </Link>
-                    <Link to="/project" className={`dark:text-slate-200 text-zinc-950 text-center text-base p-2  ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
+                    <Link to="/project" className={`dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-center text-base p-2  ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
                         Works
                     </Link>
-                    <Link to="/experience" className={`dark:text-slate-200 text-zinc-950 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
+                    <Link to="/experience" className={`dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
                         Experience
                     </Link>
-                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-950 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
+                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
                         Contact me
                     </Link>
                     <motion.p
@@ -244,7 +244,7 @@ const NavbarMobile = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv(props.resume)} className={`text-slate-200 dark:text-zinc-950 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
+                        onClick={() => props.cv(props.resume)} className={`text-slate-200 dark:text-zinc-950 transition-colors duration-500 text-center text-xs p-2 bg-blue-500 px-4 rounded hover:bg-blue-600`}>
                         Download my CV
                     </motion.p>
 
