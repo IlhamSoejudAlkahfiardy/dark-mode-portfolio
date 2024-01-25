@@ -71,7 +71,7 @@ const Hero = () => {
             type: 'spring'
           }}
           className='w-2/3 flex flex-col gap-3'>
-          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>Hi Everyone, my name is</p>
+          <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl'>Hi Everyone, my name is</p>
 
           <motion.p
             drag
@@ -95,11 +95,11 @@ const Hero = () => {
             transition={{
               type: 'spring'
             }}
-            className='dark:text-slate-200 text-zinc-950 text-4xl xl:text-5xl font-bold  w-fit'>
+            className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-4xl xl:text-5xl font-bold  w-fit'>
             Alkahfiardy
           </motion.p>
 
-          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>
+          <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl'>
             Im a
           </p>
 
@@ -134,7 +134,7 @@ const Hero = () => {
             {textSkill[currentTextIndex]}
           </motion.p>
 
-          <p className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl'>and my skills is</p>
+          <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl'>and my skills is</p>
 
           <motion.p
 
@@ -239,7 +239,7 @@ const Hero = () => {
               type: "spring",
             }}
 
-            src={ImageProfile} className='dark:grayscale' alt="" />
+            src={ImageProfile} className='dark:grayscale transition-colors duration-500' alt="" />
         </div>
 
       </div>
@@ -292,7 +292,7 @@ const Hero = () => {
               }
             }}
           >
-            <Link to="/experience" className='w-fit text-blue-500 text-sm dark:bg-zinc-950 bg-slate-200 border-2 border-blue-500 px-4 py-3 rounded flex items-center gap-2'>
+            <Link to="/experience" className='w-fit text-blue-500 text-sm dark:bg-zinc-950 bg-slate-200 border-2 border-blue-500 transition-colors duration-500 px-4 py-3 rounded flex items-center gap-2'>
               See my experience
               <CiStar className='inline-block' />
             </Link>
@@ -370,7 +370,7 @@ const About = () => {
           type: 'spring',
           duration: 1.5
         }}
-        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 transition-colors duration-500 w-fit leading-loose xl:py-2'>
         About Me
       </motion.p>
 
@@ -440,7 +440,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Name
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500'>
                 Ilham Soejud Alkahfiardy
               </p>
 
@@ -449,7 +449,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Address
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500'>
                 Malang, East Java
               </p>
 
@@ -458,7 +458,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs'>
                 Age
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500'>
                 {age} y.o at 30 May
               </p>
 
@@ -490,7 +490,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Name
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500 lg:text-lg xl:text-xl'>
                 Ilham Soejud Alkahfiardy
               </p>
 
@@ -499,7 +499,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Address
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500 lg:text-lg xl:text-xl'>
                 Malang, East Java
               </p>
 
@@ -508,7 +508,7 @@ const About = () => {
               <p className=' text-slate-500 text-xs lg:text-sm xl:text-base '>
                 Age
               </p>
-              <p className='font-bold dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>
+              <p className='font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500 lg:text-lg xl:text-xl'>
                 {age} y.o at 30 May
               </p>
 
@@ -517,11 +517,11 @@ const About = () => {
 
           <div className='flex flex-col gap-2 mt-10 lg:mt-0'>
 
-            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>Hello! I am currently pursuing my studies at <span className='text-blue-500'>Merdeka Malang University</span>, where I am enrolled in the <span className='text-blue-500'>Faculty of Information Technology</span>, specifically in the <span className='text-blue-500'>D3 Information Systems program.</span> </p>
+            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm xl:text-base indent-4 text-justify leading-loose'>Hello! I am currently pursuing my studies at <span className='text-blue-500'>Merdeka Malang University</span>, where I am enrolled in the <span className='text-blue-500'>Faculty of Information Technology</span>, specifically in the <span className='text-blue-500'>D3 Information Systems program.</span> </p>
 
-            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>My academic journey has fostered a strong interest in <span className='text-blue-500'>programming and web development</span>. Proficient in technologies like <span className='text-blue-500'>React.js, Tailwind CSS, CodeIgniter, and Laravel,</span> I am passionate about crafting innovative solutions and user-friendly interfaces. </p>
+            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm xl:text-base indent-4 text-justify leading-loose'>My academic journey has fostered a strong interest in <span className='text-blue-500'>programming and web development</span>. Proficient in technologies like <span className='text-blue-500'>React.js, Tailwind CSS, CodeIgniter, and Laravel,</span> I am passionate about crafting innovative solutions and user-friendly interfaces. </p>
 
-            <p className='dark:text-slate-200 text-zinc-950 text-sm xl:text-base indent-4 text-justify leading-loose'>Beyond coding, I find joy in exploring the world of music, a hobby that complements my creative mindset. Through hands-on experiences and continuous learning, I am dedicated to evolving as a tech enthusiast and contributing to the ever-evolving landscape of information technology.  </p>
+            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm xl:text-base indent-4 text-justify leading-loose'>Beyond coding, I find joy in exploring the world of music, a hobby that complements my creative mindset. Through hands-on experiences and continuous learning, I am dedicated to evolving as a tech enthusiast and contributing to the ever-evolving landscape of information technology.  </p>
 
           </div>
 
@@ -559,7 +559,7 @@ const About = () => {
               onMouseLeave={() => setGithub(!github)}
               onClick={() => linkSocmed('https://github.com/IlhamSoejudAlkahfiardy')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              className='w-12 h-12 p-2 flex bg-slate-100 rounded-md border border-zinc-950/30'>
               <FaGithub className='inline-block w-fit h-full text-zinc-900' />
 
               {github && (
@@ -621,7 +621,7 @@ const About = () => {
               onMouseLeave={() => setGitlab(!gitlab)}
               onClick={() => linkSocmed('https://gitlab.com/alkahfiardyIlhamSoejud')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              className='w-12 h-12 p-2 flex bg-slate-100 rounded-md border border-zinc-950/30'>
               <FaGitlab className='inline-block w-fit h-full text-orange-600' />
 
               {gitlab && (
@@ -682,7 +682,7 @@ const About = () => {
               onMouseLeave={() => setIG(!ig)}
               onClick={() => linkSocmed('https://www.instagram.com/ilhamsoejud/')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              className='w-12 h-12 p-2 flex bg-slate-100 rounded-md border border-zinc-950/30'>
 
               <FaInstagramSquare className='inline-block w-fit h-full text-fuchsia-600' />
 
@@ -743,7 +743,7 @@ const About = () => {
               onMouseLeave={() => setLinkedin(!linkedin)}
               onClick={() => linkSocmed('https://www.linkedin.com/in/ilhamsoejudalkahfiardy/')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              className='w-12 h-12 p-2 flex bg-slate-100 rounded-md border border-zinc-950/30'>
               <FaLinkedin className='inline-block w-fit h-full text-blue-700' />
 
               {linkedin && (
@@ -803,7 +803,7 @@ const About = () => {
               onMouseLeave={() => setTelegram(!telegram)}
               onClick={() => linkSocmed('https://t.me/IlhamSoejudA')}
 
-              className='w-12 h-12 p-2 flex bg-slate-200 rounded-md border border-zinc-950/30'>
+              className='w-12 h-12 p-2 flex bg-slate-100 rounded-md border border-zinc-950/30'>
               <FaTelegram className='inline-block w-fit
                h-full text-blue-500' />
 
@@ -881,7 +881,7 @@ const Skill = () => {
           duration: 1.5
         }}
 
-        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
+        className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
         My Skill-set
       </motion.p>
 
@@ -910,14 +910,14 @@ const Skill = () => {
           delay: 0.05
         }}
 
-        className='dark:text-slate-400 text-slate-600 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
+        className='dark:text-slate-400 text-slate-600 transition-colors duration-500 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
       </motion.p>
 
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
         {DataSkill.map((data, index) => (
           <motion.div
 
-            className=' aspect-square flex flex-col justify-center items-center dark:hover:bg-white/5 hover:bg-white/20 rounded-md'>
+            className=' aspect-square flex flex-col justify-center items-center dark:hover:bg-white/5 hover:bg-white/20 rounded-md transition-colors duration-500'>
             <motion.div
               key={data.id}
 
@@ -1000,7 +1000,7 @@ const JobDesk = () => {
           duration: 1.5
         }}
 
-        className='dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+        className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
         What Can I Do
       </motion.p>
       <motion.p
@@ -1024,7 +1024,7 @@ const JobDesk = () => {
           delay: .1
         }}
 
-        className='dark:text-slate-400 text-slate-600 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
+        className='dark:text-slate-400 text-slate-600 transition-colors duration-500 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
       </motion.p>
 
       <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
@@ -1079,7 +1079,7 @@ const JobDesk = () => {
             <div className='w-1/2 lg:w-1/3'>
               {data.icon}
             </div>
-            <p className='dark:text-slate-200 text-zinc-950 text-xs md:text-sm'>{data.title} </p>
+            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-xs md:text-sm'>{data.title} </p>
           </motion.div>
         ))}
 

@@ -6,8 +6,8 @@ import ScrollTop from '@/components/ScrollTop'
 import ToggleTheme from '@/components/ToggleTheme'
 
 const Layout = ({ children }) => {
+
     const [theme, setTheme] = useState('')
-    // const [storedTheme, setStoredTheme] = useState('')
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -15,37 +15,29 @@ const Layout = ({ children }) => {
     };
 
     useEffect(() => {
-        localStorage.setItem('theme', theme);
+        // if empty string, use the localStorage
+        const currentTheme = !theme ? localStorage.getItem('theme') : theme;
 
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark')
-        } else {
+        if (currentTheme === 'light') {
+            document.documentElement.classList.add('light')
             document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+            document.documentElement.classList.remove('light')
         }
+
+        localStorage.setItem('theme', currentTheme);
 
     }, [theme])
 
     useEffect(() => {
-        // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        //     setTheme('dark')
-        // } else {
-        //     setTheme('light')
-        // }
-
-        console.log('Before: Stored Theme:', localStorage.getItem('theme'));
         const storedTheme = localStorage.getItem('theme');
-
-        console.log('After: Stored Theme:', storedTheme);
-        // setStoredTheme(localStorage.getItem('theme'));
-
         setTheme(storedTheme || 'dark');
-
     }, [])
-
 
     return (
         <>
-            <div className='dark:bg-zinc-950 bg-slate-200 font-fontPoppins select-none overflow-x-hidden'>
+            <div className='dark:bg-zinc-950 bg-slate-200 font-fontPoppins select-none overflow-x-hidden transition-colors duration-500'>
                 <Navbar />
                 <div className=''>
                     {children}

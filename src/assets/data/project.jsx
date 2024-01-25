@@ -135,7 +135,7 @@ const Project = [
       },
       {
         name: 'Framer Motion',
-        tech: <FiFramer className='inline-block w-full h-full text-stone-200' />
+        tech: <FiFramer className='inline-block w-full h-full text-fuchsia-600' />
       },
     ],
     teams: [
@@ -481,7 +481,7 @@ const Project = [
       },
       {
         name: 'Framer Motion',
-        tech: <FiFramer className='inline-block w-full h-full text-stone-200' />
+        tech: <FiFramer className='inline-block w-full h-full text-fuchsia-600' />
       },
     ],
     teams: [

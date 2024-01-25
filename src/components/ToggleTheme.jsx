@@ -4,7 +4,7 @@ import { FaMoon } from "react-icons/fa";
 import { motion } from 'framer-motion';
 
 
-const ToggleTheme = ({ theme, setTheme, toggleTheme }) => {
+const ToggleTheme = ({ theme, toggleTheme }) => {
 
     return (
         <motion.div
@@ -40,7 +40,7 @@ const ToggleTheme = ({ theme, setTheme, toggleTheme }) => {
             }}
 
             onClick={toggleTheme}
-            className='fixed top-32 right-5 w-10 h-10 border dark:border-slate-200/30 border-zinc-950/50 bg-slate-200 dark:bg-zinc-950 flex items-center justify-center rounded-md'>
+            className='z-50 fixed top-32 right-5 w-10 h-10 border dark:border-slate-200/30 border-zinc-950/30 bg-slate-200 dark:bg-zinc-950 flex items-center justify-center rounded-md transition-colors duration-500'>
             {theme === 'light' ? (
                 <MdSunny className='inline-block text-zinc-950 dark:text-slate-200 ' />
             ) : (

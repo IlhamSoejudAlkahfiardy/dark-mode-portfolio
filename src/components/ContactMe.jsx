@@ -71,14 +71,14 @@ const ContactMe = () => {
                         }}
                     >
                         <motion.p
-                            className='text-slate-200 z-10 text-4xl font-semibold w-fit leading-loose xl:py-2'>
+                            className='dark:text-slate-200 text-zinc-600 z-10 transition-colors duration-500 text-4xl font-semibold w-fit leading-loose xl:py-2'>
                             Hello, <br /> Tell Me About Your Project
                         </motion.p>
 
                         <motion.p
 
-                            className='text-slate-200 z-10 text-base lg:text-lg xl:text-xl w-fit leading-loose xl:py-2'>
-                            Tell me your wish, your dream project, even your dreams teammates. I'll be glad to help you. <br /> <span className='text-amber-400 font-semibold tracking-wider'>Cheers!🍻</span>
+                            className='dark:text-slate-200 text-zinc-500 z-10 transition-colors duration-500 text-base lg:text-lg xl:text-xl w-fit leading-loose xl:py-2'>
+                            Tell me your wish, your dream project, even your dreams teammates. I'll be glad to help you. <br /> <span className='dark:text-amber-400 text-orange-400 font-semibold tracking-wider'>Cheers!🍻</span>
                         </motion.p>
                     </MotionConfig>
                 </motion.div>
@@ -121,7 +121,7 @@ const ContactMe = () => {
                         delay: .1
                     }}
 
-                    className='text-slate-200 z-10 mb-10 mx-auto lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+                    className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 z-10 mb-10 mx-auto lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
                     Get in touch!
                 </motion.p>
                 
@@ -135,12 +135,12 @@ const ContactMe = () => {
 
                     className='w-full flex flex-col md:flex-row gap-3'>
                     <div className='w-full flex flex-col gap-2'>
-                        <p className='text-xs text-slate-200'>Name</p>
-                        <input value={name} onChange={(e) => setName(e.target.value)} name='user_name' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <p className='text-xs dark:text-slate-200 transition-colors duration-500 text-zinc-950'>Name</p>
+                        <input value={name} onChange={(e) => setName(e.target.value)} name='user_name' type="text" className='w-full h-12 dark:bg-zinc-950 bg-slate-200 border dark:text-slate-200 transition-colors duration-500 text-zinc-950 px-3 focus:outline-none dark:border-slate-200/30 border-zinc-950/30 rounded-sm' />
                     </div>
                     <div className='w-full flex flex-col gap-2'>
-                        <p className='text-xs text-slate-200'>Email</p>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} name='user_email' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <p className='text-xs dark:text-slate-200 transition-colors duration-500 text-zinc-950'>Email</p>
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} name='user_email' type="text" className='w-full h-12 dark:bg-zinc-950 bg-slate-200 border dark:text-slate-200 transition-colors duration-500 text-zinc-950 px-3 focus:outline-none dark:border-slate-200/30 border-zinc-950/30 rounded-sm' />
                     </div>
                 </motion.div>
                 <motion.div
@@ -153,21 +153,21 @@ const ContactMe = () => {
 
                     className='w-full flex flex-col gap-5'>
                     <div className='w-full flex flex-col gap-2'>
-                        <p className='text-xs text-slate-200'>Subject</p>
-                        <input value={subject} onChange={(e) => setSubject(e.target.value)} name='subject' type="text" className='w-full h-12 bg-zinc-950 border text-slate-200 px-3 focus:outline-none border-slate-200/30 rounded-sm' />
+                        <p className='text-xs dark:text-slate-200 transition-colors duration-500 text-zinc-950'>Subject</p>
+                        <input value={subject} onChange={(e) => setSubject(e.target.value)} name='subject' type="text" className='w-full h-12 dark:bg-zinc-950 bg-slate-200 border dark:text-slate-200 transition-colors duration-500 text-zinc-950 px-3 focus:outline-none dark:border-slate-200/30 border-zinc-950/30 rounded-sm' />
                     </div>
                     <div className='w-full flex flex-col gap-2'>
-                        <p className='text-xs text-slate-200'>Your Message</p>
-                        <div className='w-full flex flex-col items-end gap-3 border border-slate-200/30 rounded-sm'>
-                            <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="message" id="" className='w-full bg-zinc-950  text-slate-200 p-3 focus:outline-none ' rows="10"></textarea>
+                        <p className='text-xs dark:text-slate-200 transition-colors duration-500 text-zinc-950'>Your Message</p>
+                        <div className='w-full flex flex-col items-end gap-3 border dark:border-slate-200/30 border-zinc-950/30 rounded-sm transition-colors duration-500'>
+                            <textarea value={message} onChange={(e) => setMessage(e.target.value)} name="message" id="" className='w-full dark:bg-zinc-950 bg-slate-200  dark:text-slate-200 transition-colors duration-500 text-zinc-950 p-3 focus:outline-none ' rows="10"></textarea>
 
                             {emailFilled ? (
                                 <button onClick={() => { toast({ title: toastMessage }) }} type='submit' className='w-fit text-slate-200 bg-blue-500 px-4 mr-3 mb-3 hover:bg-blue-600 py-2 rounded-sm'>Submit</button>
                             ) : (
-                                <button disabled type='submit' className='w-fit text-slate-200 border border-slate-200/30 hover:bg-zinc-500 hover:cursor-not-allowed px-4 mr-3 mb-3 py-2 rounded-sm'>Fill the form!</button>
+                                <button disabled type='submit' className='w-fit dark:text-slate-200 transition-colors duration-500 text-zinc-950 border dark:border-slate-200/30 border-zinc-950/30 dark:hover:bg-zinc-500 hover:bg-slate-400 hover:cursor-not-allowed px-4 mr-3 mb-3 py-2 rounded-sm'>Fill the form!</button>
                             )}
                         </div>
-                        <p className='text-xs text-slate-200'>
+                        <p className='text-xs dark:text-slate-200 transition-colors duration-500 text-zinc-950'>
                             *please don't spam, my tokens will run out
                         </p>
                     </div>

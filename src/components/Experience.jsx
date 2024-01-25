@@ -43,14 +43,14 @@ const Experience = () => {
                 transition={{
                     type: 'spring'
                 }}
-                className='text-slate-200 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>
+                className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>
                 My Experience
             </motion.p>
 
             <div className='w-full mx-auto max-w-3xl h-fit grid grid-cols-5'>
                 <Colspan />
                 <div className='w-full h-24 flex justify-center items-end'>
-                    <div className='w-px h-1/2 border border-slate-500'>
+                    <div className='w-px h-1/2 border dark:border-slate-500 border-zinc-500'>
 
                     </div>
                 </div>
@@ -160,7 +160,7 @@ const Experience = () => {
                 <Colspan />
 
                 <div className='w-full h-24 flex justify-center items-start'>
-                    <div className='w-px h-1/2 border border-slate-500'>
+                    <div className='w-px h-1/2 border dark:border-slate-500 border-zinc-500'>
 
                     </div>
                 </div>
@@ -181,7 +181,7 @@ const Colspan = () => {
 const Timeline = () => {
     return (
         <div className='w-full h-full flex justify-center items-center relative'>
-            <div className='w-px h-full border border-slate-500'>
+            <div className='w-px h-full border dark:border-slate-500 border-zinc-500'>
 
             </div>
             <motion.div
@@ -206,7 +206,7 @@ const Timeline = () => {
                 transition={{
                     type: 'spring'
                 }}
-                className='w-5 h-5 bg-blue-500 absolute rounded-full border-2 border-slate-200'>
+                className='w-5 h-5 bg-blue-500 absolute rounded-full border-2 dark:border-slate-200 border-white'>
 
             </motion.div>
         </div>
@@ -249,8 +249,8 @@ const Detail = ({ left, internship, date, title, major, certificate, download, u
             {internship && (
                 <p className='text-xs text-slate-200 bg-green-600 w-fit px-2 py-1 rounded mb-3'>Internship</p>
             )}
-            <p className='text-slate-400 text-xs lg:text-sm 2xl:text-base font-light'>{date}</p>
-            <p className={`text-slate-200 text-sm lg:text-base 2xl:text-lg ${left && "text-end"}`}>{title}</p>
+            <p className='transition-colors duration-500 dark:text-slate-400 text-zinc-700 text-xs lg:text-sm 2xl:text-base font-light'>{date}</p>
+            <p className={`transition-colors duration-500 dark:text-slate-200 text-zinc-950 text-sm lg:text-base 2xl:text-lg ${left && "text-end"}`}>{title}</p>
             <p className={`text-blue-500 text-xs lg:text-sm 2xl:text-base ${left && "text-end"}`}>{major}</p>
             {certificate && (
                 <Certificate download={download} url={url} />
@@ -261,7 +261,7 @@ const Detail = ({ left, internship, date, title, major, certificate, download, u
 
 const Certificate = ({ download, url }) => {
     return (
-        <div onClick={() => download(url)} className='w-full h-fit bg-blue-600 hover:bg-blue-700 hover:cursor-pointer py-2 rounded'>
+        <div onClick={() => download(url)} className='w-full h-fit bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 hover:cursor-pointer py-2 rounded shadow-md'>
             <p className='text-xs lg:text-sm 2xl:text-base text-center text-slate-200 '>Certificate</p>
         </div>
     )

@@ -17,12 +17,12 @@ const Project = () => {
     return (
         <div className='w-full min-h-screen relative overflow-x-hidden container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
 
-            <p className='text-slate-200 z-10 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>What I've Done</p>
+            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 z-10 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>What I've Done</p>
 
             <div className='w-full flex flex-col gap-5 xl:mt-10 '>
                 <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setCurrentOpen(!currentOpen)}>
-                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Current Project</p>
-                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${currentOpen ? "rotate-90" : "rotate-0"}`} />
+                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Current Project</p>
+                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-all duration-500 ${currentOpen ? "rotate-90" : "rotate-0"}`} />
                 </motion.div>
                 <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
                     <AnimatePresence mode='popLayout'>
@@ -52,8 +52,8 @@ const Project = () => {
 
             <div className='w-full flex flex-col gap-5 xl:mt-10'>
                 <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setLatestOpen(!latestOpen)}>
-                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Selected Project</p>
-                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${latestOpen ? "rotate-90" : "rotate-0"}`} />
+                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Selected Project</p>
+                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-transform duration-500 ${latestOpen ? "rotate-90" : "rotate-0"}`} />
                 </motion.div>
                 <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
                     <AnimatePresence mode='popLayout'>
@@ -83,8 +83,8 @@ const Project = () => {
 
             <motion.div layout className='w-full flex flex-col gap-5 xl:mt-10 overflow-hidden'>
                 <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setArchiveOpen(!archiveOpen)}>
-                    <p className='text-slate-200 text-xs w-24 lg:w-32 lg:text-sm'>Archive Project</p>
-                    <FaCaretRight className={`inline-block scale-125 text-slate-200 ${archiveOpen ? "rotate-90" : "rotate-0"}`} />
+                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Archive Project</p>
+                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-transform duration-500 ${archiveOpen ? "rotate-90" : "rotate-0"}`} />
                 </motion.div>
                 <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
                     <AnimatePresence mode='popLayout'>
@@ -156,7 +156,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                 }
             }}
 
-            className='max-w-sm min-w-full mx-auto flex flex-col border border-slate-200/20 rounded'>
+            className='max-w-sm min-w-full mx-auto flex flex-col border dark:border-slate-200/20 border-zinc-950/30 rounded shadow-md transition-colors duration-500'>
             {active ? (
                 <div onClick={() => link(hosting)} className='w-full h-52 hover:opacity-85 hover:cursor-pointer transition-all' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
@@ -166,11 +166,11 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
 
                 </div>
             )}
-            <div className='w-full min-h-80 px-3 md:px-5 py-5 md:py-6 flex flex-col justify-between gap-5 bg-zinc-950'>
+            <div className='w-full min-h-80 px-3 md:px-5 py-5 md:py-6 flex flex-col justify-between gap-5 dark:bg-zinc-950 bg-slate-100 transition-colors duration-500'>
                 <div className='w-full min-h-40 flex flex-col gap-5'>
                     <div className='w-full flex gap-2 justify-between items-center'>
                         <div className='flex items-center gap-2'>
-                            <p className='text-slate-200 text-sm lg:text-base font-semibold'>{title}</p>
+                            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm lg:text-base font-semibold'>{title}</p>
 
                             <TooltipProvider>
                                 <Tooltip>
@@ -179,11 +179,11 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
 
                                         </div>
                                     </TooltipTrigger>
-                                    <TooltipContent className="bg-zinc-950 p-2 border border-slate-200/30">
+                                    <TooltipContent className="dark:bg-zinc-950 bg-slate-100 p-2 border dark:border-slate-200/30 border-zinc-950/30">
                                         {active ? (
-                                            <p className='text-xs'>online</p>
+                                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500'>online</p>
                                         ) : (
-                                            <p className='text-xs'>offline</p>
+                                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500'>offline</p>
                                         )}
                                     </TooltipContent>
                                 </Tooltip>
@@ -196,28 +196,28 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                         </div>
                     </div>
                     {desc && (
-                        <p className='text-slate-200 text-xs indent-5 text-justify line-clamp-5'>{desc}</p>
+                        <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-xs indent-5 text-justify line-clamp-5'>{desc}</p>
                     )}
                 </div>
                 <div className='w-full flex flex-col gap-2 '>
                     <div className='w-full flex items-center gap-5'>
                         <div className='w-5 h-5 flex justify-center items-center'>
-                            <CiGlobe className='inline-block text-slate-200 w-full h-full' />
+                            <CiGlobe className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
                         </div>
                         {hosting != '-' ? (
-                            <p onClick={() => link(hosting)} className='text-xs text-slate-200 hover:underline hover:cursor-pointer'>{hosting}</p>
+                            <p onClick={() => link(hosting)} className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer'>{hosting}</p>
                         ) : (
-                            <p className='text-xs text-slate-200 hover:underline hover:cursor-pointer'>{hosting}</p>
+                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer'>{hosting}</p>
                         )}
                     </div>
                     <div className='w-full flex items-center gap-5'>
                         <div className='w-5 h-5 flex justify-center items-center'>
-                            <FaGithub className='inline-block text-slate-200 w-full h-full' />
+                            <FaGithub className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
                         </div>
                         {github != '-' ? (
-                            <p onClick={() => link(github)} className='text-xs w-3/4 text-slate-200 hover:underline hover:cursor-pointer line-clamp-1'>{github}</p>
+                            <p onClick={() => link(github)} className='text-xs w-3/4 dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer line-clamp-1'>{github}</p>
                         ) : (
-                            <p className='text-xs w-3/4 text-slate-200 hover:underline  line-clamp-1'>{github}</p>
+                            <p className='text-xs w-3/4 dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline  line-clamp-1'>{github}</p>
                         )}
                     </div>
                     <div className='w-full flex items-center gap-2 mt-5'>
@@ -229,7 +229,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                                         <TooltipTrigger className="w-full h-full">
                                             {data.tech}
                                         </TooltipTrigger>
-                                        <TooltipContent className="bg-zinc-950">
+                                        <TooltipContent className="dark:bg-zinc-950 bg-slate-200 dark:text-slate-200 text-zinc-950 dark:border-slate-200/30 border-zinc-950/30 transition-colors duration-500">
                                             {data.name}
                                         </TooltipContent>
                                     </Tooltip>
@@ -244,15 +244,15 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                             <Tooltip>
                                 <TooltipTrigger>
                                     <div className='w-5 h-5 flex justify-center items-center'>
-                                        <RiTeamFill className='inline-block text-slate-200 w-full h-full' />
+                                        <RiTeamFill className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
                                     </div>
                                 </TooltipTrigger>
-                                <TooltipContent className="bg-zinc-950 p-5 border border-slate-200/30">
+                                <TooltipContent className="dark:bg-zinc-950 bg-slate-100 p-5 z-50 border dark:border-slate-200/30 border-zinc-950/30">
                                     <div className='w-full flex flex-col gap-2'>
                                         {teams.map((team, index) => (
                                             <div className='w-full flex gap-2'>
-                                                <p className='text-xs lg:text-sm'>{team.name} as a </p>
-                                                <p className='text-xs lg:text-sm'>{team.role}</p>
+                                                <p className='text-xs lg:text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500'>{team.name} as a </p>
+                                                <p className='text-xs lg:text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500'>{team.role}</p>
                                             </div>
                                         ))}
                                     </div>
