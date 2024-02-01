@@ -1,13 +1,11 @@
 import React from 'react'
-import ComponentExperience from '../components/Experience'
+import ComponentExperience from '../components/Experience/Experience'
 import Layout from './Layout'
 
 const Experience = () => {
     return (
         <Layout>
-            <div className='w-full min-h-screen'>
-                <ComponentExperience />
-            </div>
+            <ComponentExperience />
         </Layout>
     )
 }

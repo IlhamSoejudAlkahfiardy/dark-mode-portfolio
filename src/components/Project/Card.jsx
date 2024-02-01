@@ -1,120 +1,11 @@
-import React, { useState } from 'react'
-import DataProject from '../assets/data/project'
-import { CiGlobe } from "react-icons/ci";
+import { motion } from 'framer-motion';
+import React from 'react'
+
 import { FaGithub } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
-import { FaCaretRight } from "react-icons/fa6";
-import { motion, AnimatePresence } from 'framer-motion';
+import { CiGlobe } from "react-icons/ci";
 
-// shadcn UI
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-
-const Project = () => {
-    const [currentOpen, setCurrentOpen] = useState(true)
-    const [latestOpen, setLatestOpen] = useState(true)
-    const [archiveOpen, setArchiveOpen] = useState(true)
-
-    return (
-        <div className='w-full min-h-screen relative overflow-x-hidden container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
-
-            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 z-10 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>What I've Done</p>
-
-            <div className='w-full flex flex-col gap-5 xl:mt-10 '>
-                <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setCurrentOpen(!currentOpen)}>
-                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Current Project</p>
-                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-all duration-500 ${currentOpen ? "rotate-90" : "rotate-0"}`} />
-                </motion.div>
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
-                    <AnimatePresence mode='popLayout'>
-                        {currentOpen && (
-                            DataProject.map((data, index) => (
-                                data.category == 'current' && (
-                                    <Card
-                                        key={index}
-                                        image={data.image}
-                                        title={data.title}
-                                        desc={data.desc}
-                                        hosting={data.hosting}
-                                        github={data.github}
-                                        active={data.active}
-                                        date={data.date}
-                                        teams={data.teams}
-                                        logo={data.logo}
-                                        stack={data.stack}
-                                        delay={data.delay}
-                                    />
-                                )
-                            ))
-                        )}
-                    </AnimatePresence>
-                </div>
-            </div>
-
-            <div className='w-full flex flex-col gap-5 xl:mt-10'>
-                <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setLatestOpen(!latestOpen)}>
-                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Selected Project</p>
-                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-transform duration-500 ${latestOpen ? "rotate-90" : "rotate-0"}`} />
-                </motion.div>
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
-                    <AnimatePresence mode='popLayout'>
-                        {latestOpen && (
-                            DataProject.map((data, index) => (
-                                data.category == 'latest' && (
-                                    <Card
-                                        key={index}
-                                        image={data.image}
-                                        title={data.title}
-                                        desc={data.desc}
-                                        hosting={data.hosting}
-                                        github={data.github}
-                                        active={data.active}
-                                        date={data.date}
-                                        teams={data.teams}
-                                        logo={data.logo}
-                                        stack={data.stack}
-                                        delay={data.delay}
-                                    />
-                                )
-                            ))
-                        )}
-                    </AnimatePresence>
-                </div>
-            </div>
-
-            <motion.div layout className='w-full flex flex-col gap-5 xl:mt-10 overflow-hidden'>
-                <motion.div layout className='w-full flex gap-5 hover:cursor-pointer' onClick={() => setArchiveOpen(!archiveOpen)}>
-                    <p className='dark:text-slate-200 text-zinc-950 text-xs w-24 transition-colors duration-500 lg:w-32 lg:text-sm'>Archive Project</p>
-                    <FaCaretRight className={`inline-block scale-125 dark:text-slate-200 text-zinc-950 transition-transform duration-500 ${archiveOpen ? "rotate-90" : "rotate-0"}`} />
-                </motion.div>
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 '>
-                    <AnimatePresence mode='popLayout'>
-                        {archiveOpen && (
-                            DataProject.map((data, index) => (
-                                data.category == 'archive' && (
-                                    <Card
-                                        key={index}
-                                        image={data.image}
-                                        title={data.title}
-                                        desc={data.desc}
-                                        hosting={data.hosting}
-                                        github={data.github}
-                                        active={data.active}
-                                        date={data.date}
-                                        teams={data.teams}
-                                        logo={data.logo}
-                                        stack={data.stack}
-                                        delay={data.delay}
-                                    />
-                                )
-                            ))
-                        )}
-                    </AnimatePresence>
-                </div>
-            </motion.div>
-
-        </div>
-    )
-}
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 const Card = ({ logo, image, title, desc, hosting, github, date, category, teams, stack, active, delay }) => {
     const link = (e) => {
@@ -125,11 +16,13 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
         <motion.div
             layout
             initial={{
-                scale: 0
+                // scale: .7,
+                opacity: 0
             }}
 
             animate={{
-                scale: 1,
+                // scale: 1,
+                opacity: 1,
                 transition: {
                     type: 'spring',
                     delay: delay
@@ -137,15 +30,18 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
             }}
 
             exit={{
-                scale: 0
+                opacity: 0,
+                transition: {
+                    delay: delay
+                }
             }}
 
             whileHover={{
                 y: [0, -20, 0],
                 transition: {
-                    repeat:Infinity,
+                    repeat: Infinity,
                     delay: 0,
-                    duration:1.5
+                    duration: 1.5
                 }
             }}
 
@@ -266,4 +162,4 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
     )
 }
 
-export default Project
+export default Card
