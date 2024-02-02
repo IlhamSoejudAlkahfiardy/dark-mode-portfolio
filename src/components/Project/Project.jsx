@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-
-import { FaRegEye } from "react-icons/fa6";
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Card from './Card';
@@ -22,10 +20,10 @@ const Project = () => {
             <div className='w-full flex flex-col items-center gap-2 xl:mt-10 my-24'>
                 <p
                     onClick={() => setState({ ...state, currentOpen: !currentOpen })}
-                    className='dark:text-slate-200 text-zinc-700 relative transition-colors duration-500 z-10 lg:text-lg xl:text-xl w-fit leading-loose hover:cursor-pointer'>
+                    className='dark:text-slate-200 text-zinc-700 w-fit transition-colors duration-500 z-10 lg:text-lg xl:text-xl leading-loose hover:cursor-pointer'>
                     Current Project
                 </p>
-                    
+
                 <motion.div
                     initial={{
                         width: '0%',

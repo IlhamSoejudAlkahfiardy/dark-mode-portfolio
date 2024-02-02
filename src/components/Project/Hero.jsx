@@ -56,6 +56,11 @@ const Hero = () => {
                             }
                         }}
 
+                        whileHover={{ 
+                            x: innerWidth < 1440 ? -60 : -110,
+                            y:10
+                         }}
+
                         className='w-32 lg:w-48 h-44 lg:h-64 bg-slate-100 lg:-top-10  shadow-lg rounded-xl absolute p-2 lg:p-4 flex flex-col gap-3'>
                         <div
                             className='w-full h-20 lg:h-28 rounded-lg'
@@ -91,6 +96,10 @@ const Hero = () => {
                                 delay: 0
                             }
                         }}
+
+                        whileHover={{ 
+                            y:-10
+                         }}
 
                         className='w-32 lg:w-48 h-44 lg:h-64 bg-slate-100 shadow-lg lg:-top-10  rounded-xl absolute p-2 lg:p-4 flex flex-col gap-3'>
                         <div
@@ -130,6 +139,10 @@ const Hero = () => {
                             }
                         }}
 
+                        whileHover={{ 
+                            x: innerWidth < 1440 ? 60 : 110,
+                            y:10
+                         }}
 
                         className='w-32 lg:w-48 h-44 lg:h-64 bg-slate-100 shadow-lg lg:-top-10  rounded-xl absolute p-2 lg:p-4 flex flex-col gap-3'>
                         <div
