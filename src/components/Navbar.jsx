@@ -24,6 +24,25 @@ const Navbar = () => {
         alert(`${fileName} downloaded, check your download folder`)
     }
 
+    const anchor = [
+        {
+            name: 'About Me',
+            link: '/'
+        },
+        {
+            name: 'Works',
+            link: '/project'
+        },
+        {
+            name: 'Experience',
+            link: '/experience'
+        },
+        {
+            name: 'Contact me',
+            link: '/contact-me'
+        },
+    ]
+
     return (
         <>
             <HamburgerMenu open={open} setOpen={setOpen} />
@@ -34,6 +53,7 @@ const Navbar = () => {
                 cv={cv}
                 setOpen={setOpen}
                 resume={resume}
+                anchor={anchor}
             />
 
             <NavbarDesktop
@@ -77,20 +97,24 @@ const NavbarDesktop = (props) => {
                             y: 0
                         }}
 
-                        whileHover={{
-                            y: -5,
-                            transition: {
-                                delay: 0
-                            }
-                        }}
-
                         transition={{
                             type: 'spring',
                             delay: .05
                         }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                        className={`relative text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
                         About Me
+                        <motion.div
+                            initial={{
+                                width: '0%',
+                            }}
+                            
+                            whileHover={{
+                                width: '100%',
+                            }}
+                            className=' border-t border-blue-500 absolute'>
+
+                        </motion.div>
                     </motion.p>
                 </Link>
                 <Link to="/project" className=' flex flex-col w-fit gap-2'>
@@ -223,18 +247,12 @@ const NavbarMobile = (props) => {
 
                     className={`absolute w-full z-20 py-5 dark:bg-zinc-950 bg-slate-200 lg:hidden flex flex-col justify-center items-center gap-5 transition-colors duration-500`}>
 
-                    <Link to="/" className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
-                        About Me
-                    </Link>
-                    <Link to="/project" className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
-                        Works
-                    </Link>
-                    <Link to="/experience" className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
-                        Experience
-                    </Link>
-                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}>
-                        Contact me
-                    </Link>
+                    {props.anchor.map((data, index) => (
+                        <Link to={data.link} key={index} className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == data.link ? "border-b border-blue-500" : ""}`}>
+                            {data.name}
+                        </Link>
+                    ))}
+
                     <motion.p
                         animate={{
                             y: [5, -5, 5],

@@ -249,9 +249,10 @@ const About = () => {
 
                                 onClick={() => setState({ ...state, about: !about })}
                                 className='w-full py-2 hover:cursor-pointer flex justify-center items-center border border-zinc-950/30 dark:border-slate-200/30 opacity-50 hover:opacity-100 transition-all duration-300 my-5'>
+
                                 <motion.p 
                                 layout
-                                className='text-xs text-zinc-700 dark:text-slate-200 '>
+                                className='text-xs text-zinc-700 dark:text-slate-200 transition-colors duration-500'>
                                     {state.about ? 'Show Less' : 'Show More'}
                                 </motion.p>
                             </div>
