@@ -8,8 +8,10 @@ import Timeline from '../Experience/Timeline'
 const Experience = () => {
     const baseURL = window.location.origin
 
-    const setpres = `${baseURL}/src/assets/downloadable/sertifikat_setpres.pdf`
-    const IL = `${baseURL}/src/assets/downloadable/sertifikat_IL.pdf`
+    const setpres = `${baseURL}/downloadable/sertifikat_setpres.pdf`
+    const IL = `${baseURL}/downloadable/sertifikat_IL.pdf`
+
+    console.log(baseURL);
 
     const download = (url) => {
         // alert('download '+ url)
