@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const baseURL = window.location.origin
 
-    const resume = `${baseURL}/downloadable/Resume-Ilham-Alkahfiardy.pdf`
+    const resume = `${baseURL}/downloadable/resume.pdf`
 
     const cv = (url) => {
         const fileName = url.split('/').pop()
