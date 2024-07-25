@@ -32,7 +32,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        fontPoppins: ["Poppins"],
+        fontPoppins: ["Poppins", "sans-serif"],
       },
     },
   },
