@@ -6,7 +6,7 @@ import DetailAward from '@/components/Award/DetailAward'
 
 const Award = () => {
     return (
-
+        // test
         <Layout>
             <Hero />
             <ComponentAward />
