@@ -7,13 +7,6 @@ import { useToast } from './ui/use-toast';
 
 const ContactMe = () => {
     const { toast } = useToast()
-    // const [emailFilled, setEmailFilled] = useState(false)
-    // const [toastMessage, setToastMessage] = useState('Your message has been sent!')
-
-    // const [name, setName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [subject, setSubject] = useState('')
-    // const [message, setMessage] = useState('')
 
     const [state, setState] = useState({
         emailFilled: false,

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Project from './pages/Project'
 import Experience from './pages/Experience'
 import ContactMe from './pages/ContactMe'
+import Award from './pages/Award'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Project />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/award" element={<Award />} />
         <Route path="/contact-me" element={<ContactMe />} />
       </Routes>
     </BrowserRouter>
