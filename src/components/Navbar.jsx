@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     const page = useLocation().pathname
-    const [shadowNav, setShadowNav] = useState(false)
 
     const baseURL = window.location.origin
 
@@ -36,6 +35,10 @@ const Navbar = () => {
         {
             name: 'Experience',
             link: '/experience'
+        },
+        {
+            name: 'Award & Certificates',
+            link: '/award'
         },
         {
             name: 'Contact me',
@@ -68,7 +71,7 @@ const Navbar = () => {
 
 const NavbarDesktop = (props) => {
     return (
-        <div className='w-full z-20 hidden container mx-auto h-24 dark:bg-zinc-950 bg-slate-200 lg:flex items-center px-5 md:px-10 transition-colors duration-500'>
+        <div className='w-full z-20 hidden container mx-auto h-24 dark:bg-zinc-950 bg-slate-200 xl:flex items-center px-5 md:px-10 transition-colors duration-500'>
             <motion.div
                 initial={{
                     y: -50
@@ -97,6 +100,13 @@ const NavbarDesktop = (props) => {
                             y: 0
                         }}
 
+                        whileHover={{
+                            y: -5,
+                            transition: {
+                                delay: 0
+                            }
+                        }}
+
                         transition={{
                             type: 'spring',
                             delay: .05
@@ -108,7 +118,7 @@ const NavbarDesktop = (props) => {
                             initial={{
                                 width: '0%',
                             }}
-                            
+
                             whileHover={{
                                 width: '100%',
                             }}
@@ -169,6 +179,32 @@ const NavbarDesktop = (props) => {
                         Experience
                     </motion.p>
                 </Link>
+                <Link to="/award" className=' flex flex-col w-fit gap-2'>
+                    <motion.p
+                        initial={{
+                            y: -50
+                        }}
+
+                        animate={{
+                            y: 0
+                        }}
+
+                        whileHover={{
+                            y: -5,
+                            transition: {
+                                delay: 0.2
+                            }
+                        }}
+
+                        transition={{
+                            type: 'spring',
+                            delay: 0.15
+                        }}
+
+                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/award' ? "border-b border-blue-500" : ""}`}>
+                        Award & Certificates
+                    </motion.p>
+                </Link>
             </div>
             <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
 
@@ -224,7 +260,6 @@ const NavbarDesktop = (props) => {
 const NavbarMobile = (props) => {
 
     return (
-
         <AnimatePresence>
             {props.open && (
                 <motion.div
@@ -238,14 +273,14 @@ const NavbarMobile = (props) => {
                     }}
 
                     exit={{
-                        y: -400
+                        y: -450
                     }}
 
                     transition={{
                         type: 'spring'
                     }}
 
-                    className={`absolute w-full z-20 py-5 dark:bg-zinc-950 bg-slate-200 lg:hidden flex flex-col justify-center items-center gap-5 transition-colors duration-500`}>
+                    className={`absolute w-full z-20 py-5 dark:bg-zinc-950 bg-slate-200 xl:hidden flex flex-col justify-center items-center gap-5 transition-colors duration-500`}>
 
                     {props.anchor.map((data, index) => (
                         <Link to={data.link} key={index} className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-center text-base p-2  ${props.page == data.link ? "border-b border-blue-500" : ""}`}>

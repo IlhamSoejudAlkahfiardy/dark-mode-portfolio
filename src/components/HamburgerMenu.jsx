@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const HamburgerMenu = (props) => {
     return (
-        <div className='z-50 flex container mx-auto lg:hidden justify-between items-center px-3 md:px-6 dark:bg-zinc-950 bg-slate-200 transition-colors duration-500'>
+        <div className='z-50 flex container mx-auto xl:hidden justify-between items-center px-3 md:px-6 dark:bg-zinc-950 bg-slate-200 transition-colors duration-500'>
             <motion.button
 
                 onClick={() => props.setOpen(!props.open)}
