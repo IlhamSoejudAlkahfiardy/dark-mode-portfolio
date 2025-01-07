@@ -15,12 +15,12 @@ const Project = () => {
     const { currentOpen, selectedOpen, archiveOpen } = state
 
     return (
-        <div className='w-full min-h-screen overflow-x-hidden container mx-auto flex flex-col  gap-10 xl:gap-0 px-5 md:px-10'>
+        <div className='container flex flex-col w-full min-h-screen gap-10 px-5 mx-auto overflow-x-hidden xl:gap-0 md:px-10'>
 
-            <div className='w-full flex flex-col items-center gap-2 xl:mt-10 my-24'>
+            {/* <div className='flex flex-col items-center w-full gap-2 my-24 xl:mt-10'>
                 <p
                     onClick={() => setState({ ...state, currentOpen: !currentOpen })}
-                    className='dark:text-slate-200 text-zinc-700 w-fit transition-colors duration-500 z-10 lg:text-lg xl:text-xl leading-loose hover:cursor-pointer'>
+                    className='z-10 leading-loose transition-colors duration-500 dark:text-slate-200 text-zinc-700 w-fit lg:text-lg xl:text-xl hover:cursor-pointer'>
                     Current Project
                 </p>
 
@@ -40,7 +40,7 @@ const Project = () => {
 
                 </motion.div>
 
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 py-5'>
+                <div className='z-10 grid w-full grid-cols-1 gap-10 py-5 mx-auto md:max-w-md lg:max-w-full lg:grid-cols-2 xl:grid-cols-3'>
                     <AnimatePresence mode='popLayout'>
                         {currentOpen && (
                             DataProject.map((data, index) => (
@@ -64,29 +64,29 @@ const Project = () => {
                         )}
                     </AnimatePresence>
                 </div>
-            </div>
+            </div> */}
 
-            <div className='w-full flex flex-col items-center gap-3 xl:mt-10 xl:my-24'>
+            <div className='flex flex-col items-start w-full gap-3 xl:mt-10 xl:my-24'>
                 <p
                     onClick={() => setState({ ...state, selectedOpen: !selectedOpen })}
-                    className='dark:text-slate-200 text-zinc-700 transition-colors duration-500 z-10 lg:text-lg xl:text-xl w-fit leading-loose hover:cursor-pointer'>Selected Project</p>
+                    className='z-10 w-full text-2xl font-medium leading-loose tracking-wide transition-colors duration-500 dark:text-slate-200 text-zinc-700 lg:text-3xl xl:text-4xl hover:cursor-pointer'>Recent Projects</p>
                 <motion.div
                     initial={{
                         width: '0%',
                     }}
 
                     animate={{
-                        width: selectedOpen ? '95%' : '25%',
+                        width: selectedOpen ? '100%' : '20%',
                         transition: {
                             type: 'spring',
                         }
                     }}
 
-                    className='border-t-2 border-blue-500'>
+                    className='border-t-2 border-zinc-700'>
 
                 </motion.div>
 
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 py-5'>
+                <div className='z-10 grid w-full grid-cols-1 gap-10 py-5 mx-auto md:max-w-md lg:max-w-full lg:grid-cols-2 xl:grid-cols-3'>
                     <AnimatePresence mode='popLayout'>
                         {selectedOpen && (
                             DataProject.map((data, index) => (
@@ -112,26 +112,26 @@ const Project = () => {
                 </div>
             </div>
 
-            <div className='w-full flex flex-col items-center gap-3 xl:mt-10 xl:my-24 overflow-hidden'>
+            <div className='flex flex-col items-start w-full gap-3 overflow-hidden xl:mt-10 xl:my-24'>
                 <p
                     onClick={() => setState({ ...state, archiveOpen: !archiveOpen })}
-                    className='dark:text-slate-200 text-zinc-700 transition-colors duration-500 z-10 lg:text-lg xl:text-xl w-fit leading-loose hover:cursor-pointer'>Archive Project</p>
+                    className='z-10 w-full text-2xl font-medium leading-loose tracking-wide transition-colors duration-500 dark:text-slate-200 text-zinc-700 lg:text-3xl xl:text-4xl hover:cursor-pointer'>Archive Projects</p>
                 <motion.div
                     initial={{
                         width: '0%',
                     }}
 
                     animate={{
-                        width: archiveOpen ? '95%' : '25%',
+                        width: archiveOpen ? '100%' : '20%',
                         transition: {
                             type: 'spring',
                         }
                     }}
 
-                    className='border-t-2 border-blue-500'>
+                    className='border-t-2 border-zinc-700'>
 
                 </motion.div>
-                <div className='w-full md:max-w-md lg:max-w-full mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 z-10 py-5'>
+                <div className='z-10 grid w-full grid-cols-1 gap-10 py-5 mx-auto md:max-w-md lg:max-w-full lg:grid-cols-2 xl:grid-cols-3'>
                     <AnimatePresence mode='popLayout'>
                         {archiveOpen && (
                             DataProject.map((data, index) => (

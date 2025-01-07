@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <div className='dark:bg-zinc-950 bg-slate-200 font-fontPoppins select-none overflow-x-hidden transition-colors duration-500'>
+            <div className='overflow-x-hidden transition-colors duration-500 select-none dark:bg-zinc-950 bg-slate-200 font-fontPoppins'>
                 <Navbar />
                 <div className=''>
                     {children}
@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
                         toggleTheme={toggleTheme}
                     />
                 </div>
-                <Toaster className="bg-zinc-950 border border-slate-200/30 text-slate-200" />
+                <Toaster className="border bg-zinc-950 border-slate-200/30 text-slate-200" />
                 <Footer />
             </div>
         </>

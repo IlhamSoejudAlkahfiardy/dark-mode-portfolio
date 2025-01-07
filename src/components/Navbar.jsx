@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import HamburgerMenu from './HamburgerMenu'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+
+import Icon from '../assets/icons/logo.png'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -71,172 +73,164 @@ const Navbar = () => {
 
 const NavbarDesktop = (props) => {
     return (
-        <div className='w-full z-20 hidden container mx-auto h-24 dark:bg-zinc-950 bg-slate-200 xl:flex items-center px-5 md:px-10 transition-colors duration-500'>
+        <div className='container z-20 items-center hidden w-full h-24 px-5 mx-auto transition-colors duration-500 dark:bg-zinc-950 bg-slate-200 xl:flex md:px-10'>
             <motion.div
-                initial={{
-                    y: -50
-                }}
+                // initial={{
+                //     y: -50
+                // }}
 
-                animate={{
-                    y: 0
-                }}
+                // animate={{
+                //     y: 0
+                // }}
 
-                transition={{
-                    type: 'spring'
-                }}
-                className='w-2/12 h-full  flex items-center'>
-                <Link to="/" className='text-lg font-bold dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider'>
-                    Skills Studio
+                // transition={{
+                //     type: 'spring'
+                // }}
+                className='flex items-center w-2/12 h-full'>
+                <Link to="/" className='flex items-center gap-2 text-lg font-bold tracking-wider transition-colors duration-500 dark:text-slate-200 text-zinc-700'>
+                    <img src={Icon} alt="" srcset="" className='h-7 aspect-square' />
+                    <p>Skills Studio</p>
                 </Link>
             </motion.div>
-            <div className='w-7/12 lg:w-6/12 xl:w-7/12 h-full flex items-center gap-16'>
-                <Link to="/" className=' flex flex-col w-fit gap-2'>
+            <div className='flex items-center w-7/12 h-full gap-16 lg:w-6/12 xl:w-7/12'>
+                <Link to="/" className='flex flex-col gap-2 w-fit'>
                     <motion.p
-                        initial={{
-                            y: -50
-                        }}
+                        // initial={{
+                        //     y: -50
+                        // }}
 
-                        animate={{
-                            y: 0
-                        }}
+                        // animate={{
+                        //     y: 0
+                        // }}
 
-                        whileHover={{
-                            y: -5,
-                            transition: {
-                                delay: 0
-                            }
-                        }}
+                        // whileHover={{
+                        //     y: -5,
+                        //     transition: {
+                        //         delay: 0
+                        //     }
+                        // }}
 
-                        transition={{
-                            type: 'spring',
-                            delay: .05
-                        }}
+                        // transition={{
+                        //     type: 'spring',
+                        //     delay: .05
+                        // }}
 
-                        className={`relative text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
+                        className={`relative text-sm dark:text-slate-200 text-zinc-700 transition-all duration-500 tracking-wider hover:text-white leading-loose ${props.page == '/' ? "border-b border-blue-500" : ""}`}>
                         About Me
-                        <motion.div
-                            initial={{
-                                width: '0%',
-                            }}
 
-                            whileHover={{
-                                width: '100%',
-                            }}
-                            className=' border-t border-blue-500 absolute'>
-
-                        </motion.div>
                     </motion.p>
                 </Link>
-                <Link to="/project" className=' flex flex-col w-fit gap-2'>
+                <Link to="/project" className='flex flex-col gap-2 w-fit'>
                     <motion.p
-                        initial={{
-                            y: -50
-                        }}
+                        // initial={{
+                        //     y: -50
+                        // }}
 
-                        animate={{
-                            y: 0
-                        }}
+                        // animate={{
+                        //     y: 0
+                        // }}
 
-                        whileHover={{
-                            y: -5,
-                            transition: {
-                                delay: 0
-                            }
-                        }}
+                        // whileHover={{
+                        //     y: -5,
+                        //     transition: {
+                        //         delay: 0
+                        //     }
+                        // }}
 
-                        transition={{
-                            type: 'spring',
-                            delay: 0.1
-                        }}
+                        // transition={{
+                        //     type: 'spring',
+                        //     delay: 0.1
+                        // }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-all duration-500 tracking-wider  leading-loose hover:text-white ${props.page == '/project' ? "border-b border-blue-500" : ""}`}>
                         Works
                     </motion.p>
                 </Link>
-                <Link to="/experience" className=' flex flex-col w-fit gap-2'>
+                <Link to="/experience" className='flex flex-col gap-2 w-fit'>
                     <motion.p
-                        initial={{
-                            y: -50
-                        }}
+                        // initial={{
+                        //     y: -50
+                        // }}
 
-                        animate={{
-                            y: 0
-                        }}
+                        // animate={{
+                        //     y: 0
+                        // }}
 
-                        whileHover={{
-                            y: -5,
-                            transition: {
-                                delay: 0
-                            }
-                        }}
+                        // whileHover={{
+                        //     y: -5,
+                        //     transition: {
+                        //         delay: 0
+                        //     }
+                        // }}
 
-                        transition={{
-                            type: 'spring',
-                            delay: 0.15
-                        }}
+                        // transition={{
+                        //     type: 'spring',
+                        //     delay: 0.15
+                        // }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-all duration-500 tracking-wider  leading-loose hover:text-white ${props.page == '/experience' ? "border-b border-blue-500" : ""}`}>
                         Experience
                     </motion.p>
                 </Link>
-                <Link to="/award" className=' flex flex-col w-fit gap-2'>
+                <Link to="/award" className='flex flex-col gap-2 w-fit'>
                     <motion.p
-                        initial={{
-                            y: -50
-                        }}
+                        // initial={{
+                        //     y: -50
+                        // }}
 
-                        animate={{
-                            y: 0
-                        }}
+                        // animate={{
+                        //     y: 0
+                        // }}
 
-                        whileHover={{
-                            y: -5,
-                            transition: {
-                                delay: 0.2
-                            }
-                        }}
+                        // whileHover={{
+                        //     y: -5,
+                        //     transition: {
+                        //         delay: 0.2
+                        //     }
+                        // }}
 
-                        transition={{
-                            type: 'spring',
-                            delay: 0.15
-                        }}
+                        // transition={{
+                        //     type: 'spring',
+                        //     delay: 0.15
+                        // }}
 
-                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-colors duration-500 tracking-wider  leading-loose ${props.page == '/award' ? "border-b border-blue-500" : ""}`}>
+                        className={`text-sm dark:text-slate-200 text-zinc-700 transition-all duration-500 tracking-wider  leading-loose hover:text-white ${props.page == '/award' ? "border-b border-blue-500" : ""}`}>
                         Award & Certificates
                     </motion.p>
                 </Link>
             </div>
-            <div className='w-3/12 lg:w-4/12 xl:w-3/12 h-full flex items-center'>
+            <div className='flex items-center w-3/12 h-full lg:w-4/12 xl:w-3/12'>
 
-                <div className='w-full flex justify-center items-center '>
-                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-sm tracking-wider leading-loose `}>
+                <div className='flex items-center justify-center w-full '>
+                    <Link to="/contact-me" className={`dark:text-slate-200 text-zinc-700 transition-all duration-500 text-sm tracking-wider leading-loose hover:text-white `}>
                         <motion.p
-                            initial={{
-                                y: -50
-                            }}
+                            // initial={{
+                            //     y: -50
+                            // }}
 
-                            animate={{
-                                y: 0
-                            }}
+                            // animate={{
+                            //     y: 0
+                            // }}
 
-                            whileHover={{
-                                y: -5,
-                                transition: {
-                                    delay: 0
-                                }
-                            }}
+                            // whileHover={{
+                            //     y: -5,
+                            //     transition: {
+                            //         delay: 0
+                            //     }
+                            // }}
 
-                            transition={{
-                                type: 'spring',
-                                delay: .2
-                            }}
+                            // transition={{
+                            //     type: 'spring',
+                            //     delay: .2
+                            // }}
+
                             className={`${props.page == '/contact-me' ? "border-b border-blue-500" : ""}`}
                         >
                             Contact me
                         </motion.p>
                     </Link>
                 </div>
-                <div className='w-full flex justify-center items-center hover:cursor-pointer'>
+                <div className='flex items-center justify-center w-full hover:cursor-pointer'>
                     <motion.p
                         animate={{
                             y: [5, -5, 5],
@@ -247,7 +241,7 @@ const NavbarDesktop = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv(props.resume)} className='text-xs dark:text-zinc-950 text-slate-200 transition-colors duration-500 bg-blue-500 px-3 py-2 rounded hover:bg-blue-600'>
+                        onClick={() => props.cv(props.resume)} className='px-3 py-2 text-xs transition-colors duration-500 bg-blue-600 rounded text-slate-200 hover:bg-blue-700'>
                         Download my CV
                     </motion.p>
                 </div>
@@ -297,7 +291,7 @@ const NavbarMobile = (props) => {
                             }
                         }}
 
-                        onClick={() => props.cv(props.resume)} className={`text-slate-200 dark:text-zinc-950 transition-colors duration-500 text-center text-xs p-2 bg-blue-500 px-4 rounded hover:bg-blue-600`}>
+                        onClick={() => props.cv(props.resume)} className={`text-slate-200 dark:text-zinc-950 transition-colors duration-500 text-center text-xs p-2 bg-blue-600 px-4 rounded hover:bg-blue-700`}>
                         Download my CV
                     </motion.p>
 

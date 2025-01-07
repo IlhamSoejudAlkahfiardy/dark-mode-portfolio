@@ -37,7 +37,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
             }}
 
             whileHover={{
-                y: [0, -20, 0],
+                y: [0, -5, 0],
                 transition: {
                     repeat: Infinity,
                     delay: 0,
@@ -52,21 +52,21 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                 }
             }}
 
-            className='max-w-sm min-w-full mx-auto flex flex-col border dark:border-slate-200/20 border-zinc-950/30 rounded shadow-md transition-colors duration-500'>
+            className='flex flex-col max-w-sm min-w-full mx-auto overflow-hidden transition-colors duration-500 border rounded shadow-md dark:border-slate-200/20 border-zinc-950/30 group'>
             {active ? (
-                <div onClick={() => link(hosting)} className='w-full h-52 hover:opacity-85 hover:cursor-pointer transition-all' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+                <div onClick={() => link(hosting)} className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
                 </div>
             ) : (
-                <div className='w-full h-52' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+                <div className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
                 </div>
             )}
-            <div className='w-full min-h-80 px-3 md:px-5 py-5 md:py-6 flex flex-col justify-between gap-5 dark:bg-zinc-950 bg-slate-100 transition-colors duration-500'>
-                <div className='w-full min-h-40 flex flex-col gap-5'>
-                    <div className='w-full flex gap-2 justify-between items-center'>
+            <div className='flex flex-col justify-between w-full gap-5 px-3 py-5 transition-colors duration-500 min-h-80 md:px-5 md:py-6 dark:bg-zinc-950 bg-slate-100'>
+                <div className='flex flex-col w-full gap-5 min-h-40'>
+                    <div className='flex items-center justify-between w-full gap-2'>
                         <div className='flex items-center gap-2'>
-                            <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-sm lg:text-base font-semibold'>{title}</p>
+                            <p className='text-sm font-semibold transition-colors duration-500 dark:text-slate-200 text-zinc-950 lg:text-base'>{title}</p>
 
                             <TooltipProvider>
                                 <Tooltip>
@@ -75,11 +75,11 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
 
                                         </div>
                                     </TooltipTrigger>
-                                    <TooltipContent className="dark:bg-zinc-950 bg-slate-100 p-2 border dark:border-slate-200/30 border-zinc-950/30">
+                                    <TooltipContent className="p-2 border dark:bg-zinc-950 bg-slate-100 dark:border-slate-200/30 border-zinc-950/30">
                                         {active ? (
-                                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500'>online</p>
+                                            <p className='text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950'>online</p>
                                         ) : (
-                                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500'>offline</p>
+                                            <p className='text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950'>offline</p>
                                         )}
                                     </TooltipContent>
                                 </Tooltip>
@@ -92,40 +92,40 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                         </div>
                     </div>
                     {desc && (
-                        <p className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 text-xs indent-5 text-justify line-clamp-5'>{desc}</p>
+                        <p className='text-xs text-justify transition-colors duration-500 dark:text-slate-200 text-zinc-950 indent-5 line-clamp-5'>{desc}</p>
                     )}
                 </div>
-                <div className='w-full flex flex-col gap-2 '>
-                    <div className='w-full flex items-center gap-5'>
-                        <div className='w-5 h-5 flex justify-center items-center'>
-                            <CiGlobe className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
+                <div className='flex flex-col w-full gap-2 '>
+                    <div className='flex items-center w-full gap-5'>
+                        <div className='flex items-center justify-center w-5 h-5'>
+                            <CiGlobe className='inline-block w-full h-full transition-colors duration-500 dark:text-slate-200 text-zinc-950' />
                         </div>
                         {hosting != '-' ? (
-                            <p onClick={() => link(hosting)} className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer'>{hosting}</p>
+                            <p onClick={() => link(hosting)} className='text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950 hover:underline hover:cursor-pointer'>{hosting}</p>
                         ) : (
-                            <p className='text-xs dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer'>{hosting}</p>
+                            <p className='text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950 hover:underline hover:cursor-pointer'>{hosting}</p>
                         )}
                     </div>
-                    <div className='w-full flex items-center gap-5'>
-                        <div className='w-5 h-5 flex justify-center items-center'>
-                            <FaGithub className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
+                    <div className='flex items-center w-full gap-5'>
+                        <div className='flex items-center justify-center w-5 h-5'>
+                            <FaGithub className='inline-block w-full h-full transition-colors duration-500 dark:text-slate-200 text-zinc-950' />
                         </div>
                         {github != '-' ? (
-                            <p onClick={() => link(github)} className='text-xs w-3/4 dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline hover:cursor-pointer line-clamp-1'>{github}</p>
+                            <p onClick={() => link(github)} className='w-3/4 text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950 hover:underline hover:cursor-pointer line-clamp-1'>{github}</p>
                         ) : (
-                            <p className='text-xs w-3/4 dark:text-slate-200 text-zinc-950 transition-colors duration-500 hover:underline  line-clamp-1'>{github}</p>
+                            <p className='w-3/4 text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-950 hover:underline line-clamp-1'>{github}</p>
                         )}
                     </div>
-                    <div className='w-full flex items-center gap-2 mt-5'>
+                    <div className='flex items-center w-full gap-2 mt-5'>
 
                         {stack.map((data, index) => (
-                            <div className='w-6 h-6 flex justify-center items-center '>
+                            <div className='flex items-center justify-center w-6 h-6 '>
                                 <TooltipProvider>
                                     <Tooltip >
                                         <TooltipTrigger className="w-full h-full">
                                             {data.tech}
                                         </TooltipTrigger>
-                                        <TooltipContent className="dark:bg-zinc-950 bg-slate-200 dark:text-slate-200 text-zinc-950 dark:border-slate-200/30 border-zinc-950/30 transition-colors duration-500">
+                                        <TooltipContent className="transition-colors duration-500 dark:bg-zinc-950 bg-slate-200 dark:text-slate-200 text-zinc-950 dark:border-slate-200/30 border-zinc-950/30">
                                             {data.name}
                                         </TooltipContent>
                                     </Tooltip>
@@ -134,21 +134,21 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                         ))}
 
                     </div>
-                    <div className='w-full flex items-center justify-between mt-5'>
-                        <p className='text-slate-500 text-xs'>{date}</p>
+                    <div className='flex items-center justify-between w-full mt-5'>
+                        <p className='text-xs text-slate-500'>{date}</p>
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <div className='w-5 h-5 flex justify-center items-center'>
-                                        <RiTeamFill className='inline-block dark:text-slate-200 text-zinc-950 transition-colors duration-500 w-full h-full' />
+                                    <div className='flex items-center justify-center w-5 h-5'>
+                                        <RiTeamFill className='inline-block w-full h-full transition-colors duration-500 dark:text-slate-200 text-zinc-950' />
                                     </div>
                                 </TooltipTrigger>
-                                <TooltipContent className="dark:bg-zinc-950 bg-slate-100 p-5 z-50 border dark:border-slate-200/30 border-zinc-950/30">
-                                    <div className='w-full flex flex-col gap-2'>
+                                <TooltipContent className="z-50 p-5 border dark:bg-zinc-950 bg-slate-100 dark:border-slate-200/30 border-zinc-950/30">
+                                    <div className='flex flex-col w-full gap-2'>
                                         {teams.map((team, index) => (
-                                            <div className='w-full flex gap-2'>
-                                                <p className='text-xs lg:text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500'>{team.name} as a </p>
-                                                <p className='text-xs lg:text-sm dark:text-slate-200 text-zinc-950 transition-colors duration-500'>{team.role}</p>
+                                            <div className='flex w-full gap-2'>
+                                                <p className='text-xs transition-colors duration-500 lg:text-sm dark:text-slate-200 text-zinc-950'>{team.name} as a </p>
+                                                <p className='text-xs transition-colors duration-500 lg:text-sm dark:text-slate-200 text-zinc-950'>{team.role}</p>
                                             </div>
                                         ))}
                                     </div>

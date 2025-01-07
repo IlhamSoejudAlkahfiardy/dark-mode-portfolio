@@ -4,7 +4,7 @@ import DataJobDesk from '../../assets/data/jobdesk'
 
 const JobDesk = () => {
     return (
-      <div className='w-full h-full relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
+      <div className='container relative flex flex-col justify-between w-full h-full px-5 mx-auto mt-24 xl:min-h-screen xl:justify-center xl:mt-0 md:px-10'>
         <motion.p
           drag
           dragConstraints={{
@@ -32,8 +32,10 @@ const JobDesk = () => {
             type: 'spring',
             duration: 1.5
           }}
+
+          viewport={{ once: true }}
   
-          className='dark:text-slate-200 text-zinc-700 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2'>
+          className='leading-loose transition-colors duration-500 border-b-2 border-blue-500 dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl w-fit xl:py-2'>
           What Can I Do
         </motion.p>
         <motion.p
@@ -56,11 +58,13 @@ const JobDesk = () => {
             duration: 1.5,
             delay: .1
           }}
+
+          viewport={{ once: true }}
   
-          className='dark:text-slate-400 text-slate-600 transition-colors duration-500 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You also can play with my job desks, try to drag some of my job below. <br /> Hahaha, remember dont hurt my jobs
+          className='mt-5 text-xs leading-loose transition-colors duration-500 dark:text-slate-400 text-slate-600 w-fit hover:cursor-pointer'>*You also can play with my jobdesks, try to drag some of my job below. <br /> Hahaha, remember dont hurt them
         </motion.p>
   
-        <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
+        <div className='z-20 grid w-full grid-cols-2 gap-2 mt-10 md:grid-cols-3 xl:grid-cols-4 lg:mt-0'>
           {DataJobDesk.map((data, index) => (
             <motion.div
               key={index}
@@ -107,12 +111,14 @@ const JobDesk = () => {
                 duration: 1.5,
                 delay: data.delay
               }}
+
+              viewport={{ once: true }}
   
-              className=' aspect-square flex flex-col justify-center gap-5 center items-center hover:bg-white/5 rounded-md'>
+              className='flex flex-col items-center justify-center gap-5 transition-colors duration-500 rounded-md aspect-square center hover:bg-white/5'>
               <div className='w-1/2 lg:w-1/3'>
                 {data.icon}
               </div>
-              <p className='dark:text-slate-200 text-zinc-700 transition-colors duration-500 text-xs md:text-sm'>{data.title} </p>
+              <p className='text-xs transition-colors duration-500 dark:text-slate-200 text-zinc-700 md:text-sm'>{data.title} </p>
             </motion.div>
           ))}
   

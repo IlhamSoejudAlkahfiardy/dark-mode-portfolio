@@ -5,7 +5,7 @@ import DataSkill from '../../assets/data/skill';
 
 const Skill = () => {
     return (
-        <div className='w-full h-full  relative xl:min-h-screen container mx-auto justify-between xl:justify-center flex flex-col mt-24 xl:mt-0 px-5 md:px-10'>
+        <div className='container relative flex flex-col justify-between w-full h-full px-5 mx-auto mt-24 xl:min-h-screen xl:justify-center xl:mt-0 md:px-10'>
             <motion.p
                 drag
                 dragConstraints={{
@@ -40,7 +40,9 @@ const Skill = () => {
                     duration: 1.5
                 }}
 
-                className='dark:text-slate-200 text-zinc-700 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit leading-loose xl:py-2 '>
+                viewport={{ once: true }}
+
+                className='leading-loose transition-colors duration-500 border-b-2 border-blue-500 dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl w-fit xl:py-2 '>
                 My Skill-set
             </motion.p>
 
@@ -69,15 +71,17 @@ const Skill = () => {
                     delay: 0.05
                 }}
 
-                className='dark:text-slate-400 text-slate-600 transition-colors duration-500 text-xs w-fit leading-loose mt-5 hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
+                viewport={{ once: true }}
+
+                className='mt-5 text-xs leading-loose transition-colors duration-500 dark:text-slate-400 text-slate-600 w-fit hover:cursor-pointer'>*You can play with my skill-sets, try to drag some of my skill below. <br /> Hahaha, dont hurt my skills
             </motion.p>
 
-            <div className='w-full z-20 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 mt-10 lg:mt-0'>
+            <div className='z-20 grid w-full grid-cols-2 gap-2 mt-10 md:grid-cols-3 xl:grid-cols-4 lg:mt-0'>
                 {DataSkill.map((data, index) => (
                     <motion.div
                         key={index}
 
-                        className=' aspect-square flex flex-col justify-center items-center dark:hover:bg-white/5 hover:bg-white/20 rounded-md transition-colors duration-500'>
+                        className='flex flex-col items-center justify-center transition-colors duration-500 rounded-md aspect-square dark:hover:bg-white/5 hover:bg-white/20'>
                         <motion.div
                             key={data.id}
 
@@ -118,7 +122,9 @@ const Skill = () => {
                                 delay: data.delay
                             }}
 
-                            className=' w-1/2 lg:w-1/3 '>
+                            viewport={{ once: true }}
+
+                            className='w-1/2 lg:w-1/3'>
                             {data.logo}
                         </motion.div>
                     </motion.div>
