@@ -12,8 +12,8 @@ const Home = () => {
 
             <Hero />
             <About />
-            <Skill />
             <JobDesk />
+            <Skill />
 
         </Layout>
     )

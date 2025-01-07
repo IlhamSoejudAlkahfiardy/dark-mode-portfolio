@@ -6,27 +6,27 @@ import { CgFigma } from "react-icons/cg";
 const JobDesk = [
     {
         id: 0,
-        title: 'Web Development',
+        title: 'Fullstack Web Development',
         icon: <FaCode className="w-full h-full text-rose-700" />,
-        delay:0.1
+        delay: 0.1
     },
     {
         id: 1,
         title: 'Database Administrator',
         icon: <BsDatabaseFillGear className="w-full h-full text-gray-700" />,
-        delay:0.2
+        delay: 0.2
     },
     {
         id: 2,
-        title: 'Front End Developer',
+        title: 'Front End Development',
         icon: <FaCss3Alt className="w-full h-full text-orange-600" />,
-        delay:0.3
+        delay: 0.3
     },
     {
         id: 3,
         title: 'UI/UX Designer',
         icon: <CgFigma className="w-full h-full text-indigo-700" />,
-        delay:0.4
+        delay: 0.4
     },
 ]
 
