@@ -49,7 +49,7 @@ const Project = [
       "https://github.com/IlhamSoejudAlkahfiardy/frontend-MassiveProject-InfiniteLearning",
     date: "23-10-2023",
     category: "latest",
-    active: true,
+    active: false,
     delay: 0.1,
     stack: [
       {
@@ -118,7 +118,7 @@ const Project = [
     github: "https://github.com/IlhamSoejudAlkahfiardy/macro-project-IL",
     date: "07-09-2023",
     category: "latest",
-    active: true,
+    active: false,
     delay: 0.2,
     stack: [
       {
