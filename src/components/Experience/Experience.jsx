@@ -27,7 +27,7 @@ const Experience = () => {
     }
 
     return (
-        <div className='w-full min-h-screen  xl:justify-center container mx-auto flex flex-col mt-10 md:my-24 gap-10 xl:gap-0 px-5 md:px-10'>
+        <div className='container flex flex-col w-full min-h-screen gap-10 px-5 mx-auto mt-10 xl:justify-center md:my-24 xl:gap-0 md:px-10'>
             <motion.p
                 drag
                 dragConstraints={{
@@ -38,23 +38,23 @@ const Experience = () => {
                 }}
                 dragTransition={{ bounceStiffness: 500, bounceDamping: 10 }}
 
-                initial={{ scale:0 }}
-                animate={{ scale:1 }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
 
-                whileHover={{ cursor:'grab' }}
-                whileTap={{ cursor:'grabbing' }}
+                whileHover={{ cursor: 'grab' }}
+                whileTap={{ cursor: 'grabbing' }}
 
                 transition={{
                     type: 'spring'
                 }}
-                className='dark:text-slate-200 text-zinc-950 transition-colors duration-500 lg:text-lg xl:text-xl border-b-2 border-blue-500 w-fit mx-auto leading-loose xl:py-2'>
+                className='mx-auto leading-loose transition-colors duration-500 border-b-2 border-blue-500 dark:text-slate-200 text-zinc-950 lg:text-lg xl:text-xl w-fit xl:py-2'>
                 My Experience
             </motion.p>
 
-            <div className='w-full mx-auto max-w-3xl h-fit grid grid-cols-5'>
+            <div className='grid w-full max-w-3xl grid-cols-5 mx-auto h-fit'>
                 <Colspan />
-                <div className='w-full h-24 flex justify-center items-end'>
-                    <div className='w-px h-1/2 border dark:border-slate-500 border-zinc-500'>
+                <div className='flex items-end justify-center w-full h-24'>
+                    <div className='w-px border h-1/2 dark:border-slate-500 border-zinc-500'>
 
                     </div>
                 </div>
@@ -163,8 +163,22 @@ const Experience = () => {
                 <Colspan />
                 <Colspan />
 
-                <div className='w-full h-24 flex justify-center items-start'>
-                    <div className='w-px h-1/2 border dark:border-slate-500 border-zinc-500'>
+                <Timeline />
+
+                <Detail
+                    certificate={false}
+                    date={"2024 Oct - Now"}
+                    internship={false}
+                    left={false}
+                    major={"Front End Developer"}
+                    title={"PT. AERO GRUP INDONESIA"}
+                    delay={0.8}
+                />
+
+                <Colspan />
+
+                <div className='flex items-start justify-center w-full h-24'>
+                    <div className='w-px border h-1/2 dark:border-slate-500 border-zinc-500'>
 
                     </div>
                 </div>

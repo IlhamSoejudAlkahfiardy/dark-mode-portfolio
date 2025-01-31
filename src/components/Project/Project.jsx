@@ -12,8 +12,6 @@ const Project = () => {
         archiveOpen: true
     })
 
-    const { currentOpen, selectedOpen, archiveOpen } = state
-
     return (
         <div className='container flex flex-col w-full min-h-screen gap-10 px-5 mx-auto overflow-x-hidden xl:gap-0 md:px-10'>
 
@@ -68,7 +66,7 @@ const Project = () => {
 
             <div className='flex flex-col items-start w-full gap-3 xl:mt-10 xl:my-24'>
                 <p
-                    onClick={() => setState({ ...state, selectedOpen: !selectedOpen })}
+                    onClick={() => setState({ ...state, selectedOpen: !state.selectedOpen })}
                     className='z-10 w-full text-2xl font-medium leading-loose tracking-wide transition-colors duration-500 dark:text-slate-200 text-zinc-700 lg:text-3xl xl:text-4xl hover:cursor-pointer'>Recent Projects</p>
                 <motion.div
                     initial={{
@@ -76,7 +74,7 @@ const Project = () => {
                     }}
 
                     animate={{
-                        width: selectedOpen ? '100%' : '20%',
+                        width: state.selectedOpen ? '100%' : '20%',
                         transition: {
                             type: 'spring',
                         }
@@ -88,7 +86,7 @@ const Project = () => {
 
                 <div className='z-10 grid w-full grid-cols-1 gap-10 py-5 mx-auto md:max-w-md lg:max-w-full lg:grid-cols-2 xl:grid-cols-3'>
                     <AnimatePresence mode='popLayout'>
-                        {selectedOpen && (
+                        {state.selectedOpen && (
                             DataProject.map((data, index) => (
                                 data.category == 'latest' && (
                                     <Card
@@ -114,7 +112,7 @@ const Project = () => {
 
             <div className='flex flex-col items-start w-full gap-3 overflow-hidden xl:mt-10 xl:my-24'>
                 <p
-                    onClick={() => setState({ ...state, archiveOpen: !archiveOpen })}
+                    onClick={() => setState({ ...state, archiveOpen: !state.archiveOpen })}
                     className='z-10 w-full text-2xl font-medium leading-loose tracking-wide transition-colors duration-500 dark:text-slate-200 text-zinc-700 lg:text-3xl xl:text-4xl hover:cursor-pointer'>Archive Projects</p>
                 <motion.div
                     initial={{
@@ -122,7 +120,7 @@ const Project = () => {
                     }}
 
                     animate={{
-                        width: archiveOpen ? '100%' : '20%',
+                        width: state.archiveOpen ? '100%' : '20%',
                         transition: {
                             type: 'spring',
                         }
@@ -133,7 +131,7 @@ const Project = () => {
                 </motion.div>
                 <div className='z-10 grid w-full grid-cols-1 gap-10 py-5 mx-auto md:max-w-md lg:max-w-full lg:grid-cols-2 xl:grid-cols-3'>
                     <AnimatePresence mode='popLayout'>
-                        {archiveOpen && (
+                        {state.archiveOpen && (
                             DataProject.map((data, index) => (
                                 data.category == 'archive' && (
                                     <Card

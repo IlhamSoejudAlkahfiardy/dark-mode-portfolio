@@ -52,7 +52,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                 }
             }}
 
-            className='flex flex-col max-w-sm min-w-full mx-auto overflow-hidden transition-colors duration-500 border rounded shadow-md dark:border-slate-200/20 border-zinc-950/30 group'>
+            className='flex flex-col max-w-sm min-w-full mx-auto transition-colors duration-500 border rounded shadow-md dark:border-slate-200/20 border-zinc-950/30 group'>
             {active ? (
                 <div onClick={() => link(hosting)} className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
@@ -119,7 +119,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                     <div className='flex items-center w-full gap-2 mt-5'>
 
                         {stack.map((data, index) => (
-                            <div className='flex items-center justify-center w-6 h-6 '>
+                            <div className='flex items-center justify-center w-6 h-6 ' key={index}>
                                 <TooltipProvider>
                                     <Tooltip >
                                         <TooltipTrigger className="w-full h-full">
@@ -146,7 +146,7 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
                                 <TooltipContent className="z-50 p-5 border dark:bg-zinc-950 bg-slate-100 dark:border-slate-200/30 border-zinc-950/30">
                                     <div className='flex flex-col w-full gap-2'>
                                         {teams.map((team, index) => (
-                                            <div className='flex w-full gap-2'>
+                                            <div className='flex w-full gap-2' key={index}>
                                                 <p className='text-xs transition-colors duration-500 lg:text-sm dark:text-slate-200 text-zinc-950'>{team.name} as a </p>
                                                 <p className='text-xs transition-colors duration-500 lg:text-sm dark:text-slate-200 text-zinc-950'>{team.role}</p>
                                             </div>

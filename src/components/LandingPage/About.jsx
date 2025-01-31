@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Assets
-import Programmer from '../../assets/icons/memoji.png'
+import Programmer from '../../assets/images/profile/profil.png'
 
 // Icons
 import { FaGithub } from "react-icons/fa";
@@ -119,7 +119,7 @@ const About = () => {
 
                         viewport={{ once: true }}
 
-                        className='w-1/4 rounded-md lg:w-full aspect-square h-fit' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
+                        className='w-1/4 h-full rounded-md lg:w-full aspect-square' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
 
                     <motion.div
                         initial={{

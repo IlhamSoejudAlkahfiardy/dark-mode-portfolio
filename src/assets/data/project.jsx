@@ -5,6 +5,8 @@ import LogoHairHub from "../images/project/logo/hairhub.png";
 import LogoBeraniBicara from "../images/project/logo/beranibicara.png";
 import LogoHavenBook from "../images/project/logo/havenbook.png";
 import LogoPorto from "../images/project/logo/porto.png";
+import LogoYMSA from "../images/project/logo/yayasan.png";
+import LogoDanusan from "../images/project/logo/danusan.png";
 
 // Image
 import ImageHairHub from "../images/project/image/hairhub.png";
@@ -18,6 +20,8 @@ import ImageStudentLMS from "../images/project/image/student-LMS.jpg";
 import ImageTeacherLMS from "../images/project/image/teacher-LMS.jpg";
 import ImageAuction from "../images/project/image/auction.png";
 import ImagePorto from "../images/project/image/porto.png";
+import ImageYMSA from "../images/project/image/ymsa.png";
+import ImageDanusan from "../images/project/image/danusan.png";
 
 // Stack
 import { FaReact } from "react-icons/fa";
@@ -38,6 +42,74 @@ import { FaCss3Alt } from "react-icons/fa";
 import { DiJqueryLogo } from "react-icons/di";
 
 const Project = [
+  { 
+    id: 12,
+    logo: LogoDanusan,
+    image: ImageDanusan,
+    title: "Beasiswa Danusan",
+    desc: "Beasiswa Danusan is Educational funding assistance for active university students (Bachelor's degree) in Indonesia. The scholarship program will be open to the public as a form of our support for improving the quality of education and fostering an entrepreneurial spirit",
+    hosting: "https://www.beasiswadanusan.com/",
+    github:
+      "-",
+    date: "29-08-2024",
+    category: "latest",
+    active: true,
+    delay: 0.3,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Framer Motion',
+        tech: <FiFramer className='inline-block w-full h-full text-fuchsia-600' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+    ],
+  },
+  { 
+    id: 11,
+    logo: LogoYMSA,
+    image: ImageYMSA,
+    title: "Yayasan Muda Satu Abdi",
+    desc: "Yayasan Muda Satu Abdi is a volunteer community established on June 1, 2019. This community focuses on social activities and community empowerment by optimizing the role of Indonesian youth, particularly in the North Sumatra region",
+    hosting: "https://www.mudasatuabdi.com/",
+    github:
+      "-",
+    date: "18-08-2024",
+    category: "latest",
+    active: true,
+    delay: 0.2,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+      {
+        name: "Nanda",
+        role: "UI/UX Designer",
+      },
+    ],
+  },
   {
     id: 0,
     logo: LogoHairHub,
