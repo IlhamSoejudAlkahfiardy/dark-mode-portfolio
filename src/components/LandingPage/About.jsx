@@ -120,7 +120,7 @@ const About = () => {
                         viewport={{ once: true }}
 
                         className='w-1/4 h-full rounded-md lg:w-full aspect-square' style={{ backgroundImage: `url(${Programmer})`, backgroundPosition: 'top', backgroundSize: 'cover' }} />
-
+ 
                     <motion.div
                         initial={{
                             x: 300,
