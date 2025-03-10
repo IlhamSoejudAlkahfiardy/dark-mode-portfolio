@@ -5,11 +5,13 @@ import Project from './pages/Project'
 import Experience from './pages/Experience'
 import ContactMe from './pages/ContactMe'
 import Award from './pages/Award'
+import SplashCursor from './components/SplashCursor'
 
 function App() {
 
   return (
     <BrowserRouter>
+      <SplashCursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Project />} />

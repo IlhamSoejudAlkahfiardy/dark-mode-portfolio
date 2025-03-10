@@ -8,14 +8,12 @@ import Layout from './Layout';
 
 const Home = () => {
     return (
-        <Layout>
-
-            <Hero />
-            <About />
-            <JobDesk />
-            <Skill />
-
-        </Layout>
+            <Layout>
+                <Hero />
+                <About />
+                <JobDesk />
+                <Skill />
+            </Layout>
     )
 }
 

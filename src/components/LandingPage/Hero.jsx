@@ -12,23 +12,16 @@ import RunningSkill from '../RunningSkill';
 
 // Icons
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Particles from '../Particles/Particles';
 
 
 const Hero = () => {
-    const textSkill = ['Front End Developer', 'UI / UX Designer']
-
-    const [state, setState] = useState({
-        currentTextIndex: 0,
-        currentSkillSetIndex: 0,
-        innerWidth: 0,
-    })
-
-    const { currentTextIndex, currentSkillSetIndex, innerWidth } = state
 
     console.log(DataSkill.length);
 
     return (
         <div id='landing-page' className='w-full xl:h-[650px] 2xl:h-[800px] xl:justify-center container mx-auto flex flex-col mt-10 md:mt-24 xl:mt-0 gap-10 px-5 md:px-10'>
+            
             <div className='flex flex-col items-start w-full gap-0'>
                 <motion.div
 
@@ -149,15 +142,15 @@ const Hero = () => {
                 </motion.div> */}
 
                 {/* new button */}
-                <Button href={'/project'} text={'See my recent projects'}/>
-                <Button href={'/experience'} text={'See my experience'}/>
+                <Button href={'/project'} text={'See my recent projects'} />
+                <Button href={'/experience'} text={'See my experience'} />
 
             </div>
         </div>
     )
 }
 
-const Button = ({text, href}) => {
+const Button = ({ text, href }) => {
     return (
         <Link to={href} className='flex justify-between w-full p-3 border-b md:w-3/4 xl:w-1/2 group border-blue-500/50'>
             <p className='text-sm transition-all duration-500 text-slate-200 group-hover:ml-5'>{text}</p>
