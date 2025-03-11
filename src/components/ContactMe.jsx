@@ -110,11 +110,11 @@ const ContactMe = () => {
                             cursor: 'grabbing'
                         }}
 
-                        src={ImageContactMe} className='max-w-sm xl:scale-125' alt="" srcset="" />
+                        src={ImageContactMe} className='z-50 max-w-sm xl:scale-125' alt="" srcset="" />
                 </div>
             </div>
 
-            <form ref={form} onSubmit={sendEmail} className='w-full lg:max-w-2xl xl:max-w-3xl mx-auto flex flex-col gap-3 mt-10 overflow-hidden'>
+            <form ref={form} onSubmit={sendEmail} className='z-50 w-full lg:max-w-2xl xl:max-w-3xl mx-auto flex flex-col gap-3 mt-10 overflow-hidden'>
                 <motion.p
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
