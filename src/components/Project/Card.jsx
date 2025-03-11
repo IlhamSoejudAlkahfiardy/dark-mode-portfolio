@@ -6,6 +6,7 @@ import { RiTeamFill } from "react-icons/ri";
 import { CiGlobe } from "react-icons/ci";
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
+import TiltedCard from '../TiltedCard/TiltedCard';
 
 const Card = ({ logo, image, title, desc, hosting, github, date, category, teams, stack, active, delay }) => {
     const link = (e) => {
@@ -54,13 +55,51 @@ const Card = ({ logo, image, title, desc, hosting, github, date, category, teams
 
             className='flex flex-col max-w-sm min-w-full mx-auto transition-colors duration-500 border rounded shadow-md dark:border-slate-200/20 border-zinc-950/30 group'>
             {active ? (
-                <div onClick={() => link(hosting)} className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+                <TiltedCard
+                    imageSrc={image}
+                    altText={title}
+                    captionText={title}
+                    containerHeight="208px"
+                    containerWidth="100%"
+                    imageHeight="208px"
+                    imageWidth="100%"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.2}
+                    showMobileWarning={false}
+                    showTooltip={true}
+                    displayOverlayContent={true}
+                    overlayContent={
+                        <p className="tilted-card-demo-text">
+                            {/* Kendrick Lamar - GNX */}
+                        </p>
+                    }
+                />
+                // <div onClick={() => link(hosting)} className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
-                </div>
+                // </div>
             ) : (
-                <div className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+                <TiltedCard
+                    imageSrc={image}
+                    altText={title}
+                    captionText={title}
+                    containerHeight="208px"
+                    containerWidth="100%"
+                    imageHeight="208px"
+                    imageWidth="100%"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.2}
+                    showMobileWarning={false}
+                    showTooltip={true}
+                    displayOverlayContent={true}
+                    overlayContent={
+                        <p className="tilted-card-demo-text">
+                            {/* Kendrick Lamar - GNX */}
+                        </p>
+                    }
+                />
+                // <div className='w-full transition-all duration-500 h-52 hover:opacity-85 hover:cursor-pointer' style={{ backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
 
-                </div>
+                // </div>
             )}
             <div className='flex flex-col justify-between w-full gap-5 px-3 py-5 transition-colors duration-500 min-h-80 md:px-5 md:py-6 dark:bg-zinc-950 bg-slate-100'>
                 <div className='flex flex-col w-full gap-5 min-h-40'>

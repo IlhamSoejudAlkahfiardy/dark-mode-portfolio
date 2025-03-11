@@ -58,7 +58,7 @@ const RunningSkill = () => {
                     ))}
                 </div>
             </div>
-            
+
             <style jsx>{`
                 @keyframes slide {
                     from {

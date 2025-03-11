@@ -6,6 +6,7 @@ import Experience from './pages/Experience'
 import ContactMe from './pages/ContactMe'
 import Award from './pages/Award'
 import SplashCursor from './components/SplashCursor'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/experience" element={<Experience />} />
         <Route path="/award" element={<Award />} />
         <Route path="/contact-me" element={<ContactMe />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

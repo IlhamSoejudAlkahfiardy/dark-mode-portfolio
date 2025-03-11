@@ -15,13 +15,59 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import Particles from '../Particles/Particles';
 
 
+
+import {
+    FaReact,
+    FaHtml5,
+    FaPython,
+    FaCss3Alt,
+    FaVuejs,
+    FaJava,
+    FaPhp,
+    FaBootstrap,
+    FaLaravel,
+    FaNpm,
+    FaGithub
+} from "react-icons/fa";
+import {
+    BiLogoTailwindCss,
+    BiLogoPostgresql
+} from "react-icons/bi";
+import {
+    SiMysql,
+    SiPostman,
+    SiCplusplus,
+    SiDaisyui,
+    SiReactrouter,
+    SiVite,
+    SiApache,
+    SiNginx,
+    SiMicrosoftsqlserver,
+    SiCanva
+} from "react-icons/si";
+import {
+    DiCodeigniter,
+    DiJqueryLogo
+} from "react-icons/di";
+import {
+    IoLogoJavascript,
+    IoLogoFigma,
+    IoLogoVercel
+} from "react-icons/io5";
+import { FiFramer } from "react-icons/fi";
+import {
+    FaGitAlt,
+    FaGitlab
+} from "react-icons/fa6";
+import ScrollVelocity from '../ScrollVelocity/ScrollVelocity';
+
 const Hero = () => {
 
     console.log(DataSkill.length);
 
     return (
         <div id='landing-page' className='w-full xl:h-[650px] 2xl:h-[800px] xl:justify-center container mx-auto flex flex-col mt-10 md:mt-24 xl:mt-0 gap-10 px-5 md:px-10'>
-            
+
             <div className='flex flex-col items-start w-full gap-0'>
                 <motion.div
 
@@ -89,9 +135,8 @@ const Hero = () => {
                     <p className='transition-colors duration-500 dark:text-slate-200 text-zinc-700 lg:text-lg xl:text-xl'>and my tech stack is</p>
 
                 </motion.div>
-
+                
                 <RunningSkill />
-
 
             </div>
 
