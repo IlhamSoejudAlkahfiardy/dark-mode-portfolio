@@ -89,8 +89,6 @@ const DetailAward = (props) => {
                                 <TableTH title='Category' />
                                 <TableTD data={props.data.category} />
                             </TableTR>
-
-                            {console.log(props.data.project)}
                             {props.data.project.length > 0 && (
 
                                 <TableTR>

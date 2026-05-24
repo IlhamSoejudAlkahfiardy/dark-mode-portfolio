@@ -7,6 +7,7 @@ import LogoHavenBook from "../images/project/logo/havenbook.png";
 import LogoPorto from "../images/project/logo/porto.png";
 import LogoYMSA from "../images/project/logo/yayasan.png";
 import LogoDanusan from "../images/project/logo/danusan.png";
+import LogoInflup from "../images/project/logo/influp.png";
 
 // Image
 import ImageHairHub from "../images/project/image/hairhub.png";
@@ -22,6 +23,10 @@ import ImageAuction from "../images/project/image/auction.png";
 import ImagePorto from "../images/project/image/porto.png";
 import ImageYMSA from "../images/project/image/ymsa.png";
 import ImageDanusan from "../images/project/image/danusan.png";
+import ImageInflup from "../images/project/image/influp.png";
+import ImageDashboardCreatorUp from "../images/project/image/DashboardCreatorUp.png";
+import ImageDashboardAffiliateCreatorUp from "../images/project/image/DashboardAffiliateCreatorUp.png";
+import CreatorUp from "../images/project/image/CreatorUp.png";
 
 // Stack
 import { FaReact } from "react-icons/fa";
@@ -42,7 +47,156 @@ import { FaCss3Alt } from "react-icons/fa";
 import { DiJqueryLogo } from "react-icons/di";
 
 const Project = [
-  { 
+  {
+    id: 16,
+    image: CreatorUp,
+    title: "Creator Up",
+    desc: "Creator Up is a video rotating tool platform that enables users to generate dozens of ready-to-upload content pieces from a few footage files quickly and efficiently. The platform helps save editing time with white-label system support and multi-tenant configuration, allowing each client to use the platform with branding tailored to their needs.",
+    hosting: "https://app.creatorup.id/",
+    github:
+      "-",
+    date: "01-10-2024",
+    category: "latest",
+    active: true,
+    delay: 0.2,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Express JS',
+        tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+      {
+        name: "Akbar",
+        role: "Back End Developer",
+      },
+    ],
+  },
+  {
+    id: 15,
+    image: ImageDashboardAffiliateCreatorUp,
+    title: "Dashboard Creator Up",
+    desc: "A dashboard platform that displays Creator Up usage data in real time, including the number of active users, monthly revenue based on specific filters, total content renderings, as well as user plan and subscription monitoring to support business analysis and decision-making.",
+    hosting: "https://dashboard.creatorup.id/",
+    github:
+      "-",
+    date: "07-10-2025",
+    category: "latest",
+    active: true,
+    delay: 0.3,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Express JS',
+        tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+      {
+        name: "Akbar",
+        role: "Back End Developer",
+      },
+    ],
+  },
+  {
+    id: 14,
+    image: ImageDashboardCreatorUp,
+    title: "Dashboard Affiliate Creator Up",
+    desc: "This platform serves as an analytics dashboard to monitor and display the affiliate performance of Creator Up affiliators in a structured manner. The dashboard provides various data points and metrics to support performance monitoring, performance evaluation, and analysis of affiliate program effectiveness.",
+    hosting: "https://affiliate.creatorup.id/",
+    github:
+      "-",
+    date: "01-10-2025",
+    category: "latest",
+    active: true,
+    delay: 0.1,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Express JS',
+        tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+      {
+        name: "Akbar",
+        role: "Back End Developer",
+      },
+    ],
+  },
+  {
+    id: 13,
+    logo: LogoInflup,
+    image: ImageInflup,
+    title: "Influp",
+    desc: "Influp is a web-based platform that helps KOLs and marketing teams analyze the performance of TikTok and Instagram Reels content through a single content link. The platform provides structured insights such as engagement, views, comments, and shares, displayed in an interactive dashboard to support monitoring, evaluation, and strategic decision-making in digital marketing.",
+    hosting: "-",
+    github:
+      "-",
+    date: "01-11-2024",
+    category: "latest",
+    active: false,
+    delay: 0.2,
+    stack: [
+      {
+        name: 'React JS',
+        tech: <FaReact className='inline-block w-full h-full text-sky-500' />
+      },
+      {
+        name: 'Tailwind CSS',
+        tech: <BiLogoTailwindCss className='inline-block w-full h-full text-teal-500' />
+      },
+      {
+        name: 'Express JS',
+        tech: <SiExpress className='inline-block w-full h-full text-slate-200' />
+      },
+    ],
+    teams: [
+      {
+        name: "Ilham",
+        role: "Front End Developer",
+      },
+      {
+        name: "Akbar",
+        role: "Back End Developer",
+      },
+    ],
+  },
+  {
     id: 12,
     logo: LogoDanusan,
     image: ImageDanusan,
@@ -52,7 +206,7 @@ const Project = [
     github:
       "-",
     date: "29-08-2024",
-    category: "latest",
+    category: "archive",
     active: true,
     delay: 0.3,
     stack: [
@@ -76,7 +230,7 @@ const Project = [
       },
     ],
   },
-  { 
+  {
     id: 11,
     logo: LogoYMSA,
     image: ImageYMSA,
@@ -120,7 +274,7 @@ const Project = [
     github:
       "https://github.com/IlhamSoejudAlkahfiardy/frontend-MassiveProject-InfiniteLearning",
     date: "23-10-2023",
-    category: "latest",
+    category: "archive",
     active: false,
     delay: 0.1,
     stack: [
@@ -189,7 +343,7 @@ const Project = [
     hosting: "https://beranibicara.my.id/",
     github: "https://github.com/IlhamSoejudAlkahfiardy/macro-project-IL",
     date: "07-09-2023",
-    category: "latest",
+    category: "archive",
     active: false,
     delay: 0.2,
     stack: [
@@ -246,7 +400,7 @@ const Project = [
     hosting: "-",
     github: "https://github.com/Tom-Dev-App/Haven-Book-Desain-SI/tree/production",
     date: "05-06-2023",
-    category: "latest",
+    category: "archive",
     active: false,
     delay: 0.3,
     stack: [

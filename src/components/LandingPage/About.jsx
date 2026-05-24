@@ -417,7 +417,7 @@ const About = () => {
 
                             onMouseEnter={() => setState({ ...state, ig: !ig })}
                             onMouseLeave={() => setState({ ...state, ig: !ig })}
-                            onClick={() => linkSocmed('https://www.instagram.com/ilhamsoejud/')}
+                            onClick={() => linkSocmed('https://www.instagram.com/alkahfiardy/')}
 
                             className='flex w-12 h-12 p-2 border rounded-md bg-slate-100 border-zinc-950/30'>
 

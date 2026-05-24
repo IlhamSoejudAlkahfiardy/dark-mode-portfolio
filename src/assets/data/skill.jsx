@@ -34,7 +34,7 @@ import {
 import {
   IoLogoJavascript,
   IoLogoFigma,
-  IoLogoVercel 
+  IoLogoVercel
 } from "react-icons/io5";
 import { FiFramer } from "react-icons/fi";
 import {
@@ -42,19 +42,12 @@ import {
   FaGitlab
 } from "react-icons/fa6";
 
-
 const Skill = [
   {
     id: 0,
     logo: <FaReact className="w-full h-full text-sky-500" />,
     title: "React Js",
     delay: 0.1
-  },
-  {
-    id: 12,
-    logo: <FaVuejs className="w-full h-full text-emerald-500" />,
-    title: "Vue Js",
-    delay: 0.3
   },
   {
     id: 1,
@@ -229,6 +222,13 @@ const Skill = [
     logo: <IoLogoVercel className="w-full h-full text-white" />,
     title: "Vercel",
     delay: 0.5
+  },
+
+  {
+    id: 30,
+    logo: <FaVuejs className="w-full h-full text-emerald-500" />,
+    title: "Vue Js",
+    delay: 0.1
   }
 ];
 

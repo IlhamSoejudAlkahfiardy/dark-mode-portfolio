@@ -63,8 +63,6 @@ import ScrollVelocity from '../ScrollVelocity/ScrollVelocity';
 
 const Hero = () => {
 
-    console.log(DataSkill.length);
-
     return (
         <div id='landing-page' className='w-full xl:h-[650px] 2xl:h-[800px] xl:justify-center container mx-auto flex flex-col mt-10 md:mt-24 xl:mt-0 gap-10 px-5 md:px-10'>
 
